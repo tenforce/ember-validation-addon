@@ -1,0 +1,7 @@
+<table class="table table-striped">
+  {{#if isEmpty}}
+    {{result-table-header-empty}}
+  {{else}}
+    {{result-table-header parameters=parameters}} {{result-table-body parameters=parameters included=included}}
+  {{/if}}
+</table>

@@ -1,0 +1,16 @@
+{{#each-in relationshipsHash as |relationkey relationvalue|}}
+  <h3>{{relationvalue.attributes.description}}</h3>
+
+  {{result-table included=(get includedHash relationkey)  parameters=relationvalue.attributes.parameters}}
+{{/each-in}}
+
+{{!-- {{#each relationships as |relationship|}}
+
+  {{#each included as |item|}}
+    {{#if (eql item.id relationship.id)}}
+
+      <h3>{{item.attributes.description}}</h3>
+      {{result-table included=included relationships=item.relationships parameters=item.attributes.parameters}}
+    {{/if}}
+  {{/each}}
+{{/each}} --}}

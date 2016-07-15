@@ -1,0 +1,16 @@
+<div class="input-group list-group">
+  <div class="input-group-btn" data-toggle="buttons" {{action "setChecked"}}>
+    {{#if checked}}
+      <label class="btn btn-info btn-block borderless active">
+        <input type="checkbox" /> Select
+      </label>
+    {{else}}
+      <label class="btn btn-primary-outline btn-block borderless">
+        <input type="checkbox" /> Select
+      </label>
+    {{/if}}
+  </div>
+  <button type="button" class="btn btn-primary-outline btn-block" {{action "showValidation"}}>
+    {{validation.name}}
+  </button>
+</div>

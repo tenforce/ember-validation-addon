@@ -1,0 +1,19 @@
+<div class="detailblock">
+  <span>Description:</span> <span>{{description}}</span>
+</div>
+
+<div class="detailblock">
+  <span>Query:</span> <span>{{query}}</span>
+</div>
+
+{{#unless typesArrayEmpty}}
+  <div class="detailblock">
+    <span>Types:</span> <span>{{types}}</span>
+  </div>
+{{/unless}}
+
+{{#unless parameterArrayEmpty}}
+  <div class="detailblock">
+    <span>Parameters:</span> <span>{{parameters}}</span>
+  </div>
+{{/unless}}

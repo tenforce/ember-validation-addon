@@ -1,0 +1,7 @@
+<div class="list-group">
+  {{#each (await validations) as |validation|}}
+    <li class="list-group-item">
+      {{validation-list-item validation=validation manageKeys="manageKeys" showValidation="showValidation"}}
+    </li>
+  {{/each}}
+</div>

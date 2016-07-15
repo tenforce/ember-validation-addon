@@ -1,0 +1,45 @@
+{{#each pagedContent as |item|}}
+    <tr>
+      <td>
+        {{item.id}}
+      </td>
+      <td>
+        {{item.type}}
+      </td>
+      {{#each parameters as |param|}}
+        {{#unless (eql param "uuid") }}
+          <td>
+            {{get item.attributes param}}
+          </td>
+        {{/unless}}
+      {{/each}}
+    </tr>
+{{/each}}
+
+{{#if displayPagination}}
+  <div class="paginationCenter">
+    {{page-numbers content=pagedContent}}
+  </div>
+{{/if}}
+
+
+{{!-- {{pagedContent.length}} --}}
+
+{{!-- in case of instead of arrays we use hashes --}}
+{{!-- {{#each-in included as |key value|}}
+<tr>
+  <td>
+    {{value.id}}
+  </td>
+  <td>
+    {{value.type}}
+  </td>
+  {{#each parameters as |param|}}
+    {{#unless (eql param "uuid") }}
+      <td>
+        {{get value.attributes param}}
+      </td>
+    {{/unless}}
+  {{/each}}
+</tr>
+{{/each-in}} --}}

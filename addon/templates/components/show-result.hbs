@@ -1,0 +1,7 @@
+<button class="btn btn-info" disabled= {{disableButton}} {{action "runQuery"}}>
+  Run query
+</button>
+
+{{#unless hideTable }}
+  {{result-table included=results.included relationships=results.data.relationships parameters=results.data.attributes.parameters}}
+{{/unless}}

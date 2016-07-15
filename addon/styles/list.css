@@ -1,0 +1,44 @@
+@import 'button-colors.css';
+button.borderless {
+  border: 0 none;
+}
+.list-group-item {
+  border: 0 none;
+}
+button.btn.btn-primary-outline {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+label.btn.btn-block.borderless {
+  border-right: 0px;
+}
+.detailblock span:first-child {
+  font-weight: bold;
+}
+.margin-top {
+  margin-top: 20px;
+}
+.list-group {
+  margin-bottom: 0px;
+}
+.input-group-addon {
+  background-color: transparent;
+}
+.list-group-item.empty-list {
+  /*border: 1px;
+  /*border-color: black;*/
+  */
+}
+.empty-list {
+  min-height: 100px;
+  text-align: center;
+  /*border: 1 none;*/
+}
+.empty-list .empty-message {
+  display: inline-block;
+  color: #555;
+  line-height: 100px;
+}
