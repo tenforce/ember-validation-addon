@@ -2,26 +2,29 @@
 `import layout from '../templates/components/show-result'`
 
 ShowResultComponent = Ember.Component.extend
-  layout: layout
-  hideTable : true
-  disableButton: false
+    layout: layout
+    hideTable : true
+    disableButton: false
 
-  toggleDisableButton : ->
-    @set "disableButton", !@get "disableButton"
+    didReceiveAttrs: ->
+        @set "disableButton", false
+        @set "hideTable", true
 
-  toggleHideTable : ->
-    @set "hideTable", !@get "hideTable"
-    @rerender()
+    toggleDisableButton : ->
+        @set "disableButton", !@get "disableButton"
 
-  actions:
-    runQuery: ->
-      url = "validation-result/" + escape(@id)
-      $.getJSON url, (data) =>
-        @results = data
-        @toggleDisableButton()
-        @toggleHideTable()
+    toggleHideTable : ->
+        @set "hideTable", !@get "hideTable"
+        @rerender()
 
-      false
+    actions:
+        runQuery: ->
+            url = "/validations/validation-result/" + escape(@id)
+            $.getJSON url, (data) =>
+                @results = data
+                @toggleDisableButton()
+                @toggleHideTable()
 
+            false
 
 `export default ShowResultComponent`

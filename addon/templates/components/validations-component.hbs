@@ -1,33 +1,33 @@
 {{#if combinedTables}}
-  <div class="col-md-12">
-    <button type="button" class="btn btn-info-outline btn-block" {{action "runSelectedQueries"}}>
-      {{buttonLabel}}
-    </button>
-    {{combined-result-tables relationships=runQueriesResults.data.relationships included=runQueriesResults.included}}
-  </div>
+    <div class="col-md-12">
+        <button type="button" class="btn btn-info-outline btn-block" {{action "runSelectedQueries"}}>
+            {{buttonLabel}}
+        </button>
+        {{combined-result-tables relationships=runQueriesResults.data.relationships included=runQueriesResults.included}}
+    </div>
 
 {{else}}
-  <div class="col-md-3">
-    <button type="button" class="btn btn-info-outline btn-block" {{action "runSelectedQueries"}}>
-      {{buttonLabel}}
-    </button>
-    {{#if (await model)}}
-      {{validation-list-view validations=model manageKeys="manageKeys" showValidation="showValidation"}}
-    {{/if}}
-  </div>
-  <div class="col-md-9">
-    {{validation-detailed-view validation=validation-to-show}}
-  </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-info-outline btn-block" {{action "runSelectedQueries"}}>
+            {{buttonLabel}}
+        </button>
+
+        {{validation-list-view validations=validationsData manageKeys="manageKeys" showValidation="showValidation"}}
+
+    </div>
+    <div class="col-md-10">
+        {{validation-detailed-view validation=validation-to-show}}
+    </div>
 {{/if}}
 
 {{!-- <div class="col-md-8">
   {{#if validation-to-show}}
-    {{validation-detailed-view validation=validation-to-show}}
-  {{else}}
-    <div class="list-group-item empty-list">
-      <div class="empty-message">
-        Choose a rule!
-      </div>
-    </div>
-  {{/if}}
-</div> --}}
+{{validation-detailed-view validation=validation-to-show}}
+    {{else}}
+        <div class="list-group-item empty-list">
+            <div class="empty-message">
+                Choose a rule!
+            </div>
+        </div>
+        {{/if}}
+        </div> --}}

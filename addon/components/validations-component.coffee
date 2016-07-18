@@ -2,68 +2,63 @@
 `import layout from '../templates/components/validations-component'`
 
 ValidationsComponentComponent = Ember.Component.extend
-  layout: layout
-  keys: {}
-  buttonLabel: "Run all queries"
-  combinedTables: false
-  store: Ember.inject.service()
+    layout: layout
+    keys: {}
+    buttonLabel: "Run all queries"
+    combinedTables: false
 
-  didReceiveAttrs: ->
-    @model = @get('store').findAll('validation')
+    toggleCombinedTables : ->
+        @set "combinedTables", !@get "combinedTables"
 
+    toggleButtonLabel: ->
+        keysArray = Object.keys(@keys)
 
-  toggleCombinedTables : ->
-    @set "combinedTables", !@get "combinedTables"
+        if keysArray.length > 0
+            for key in keysArray
+                if @keys[key]
+                    @set "buttonLabel", "Run selected queries"
+                    return
 
-  toggleButtonLabel: ->
-    keysArray = Object.keys(@keys)
+        @set "buttonLabel", "Run all queries"
 
-    if keysArray.length > 0
-      for key in keysArray
-        if @keys[key]
-          @set "buttonLabel", "Run selected queries"
-          return
+    runQueries: ->
+        keysArray = Object.keys(@keys)
+        keysString = ""
+        if keysArray.length > 0
+            keysString = "?keys="
+            for key in keysArray
+                if @keys[key]
+                    keysString=keysString.concat(escape(key) + ",")
 
-    @set "buttonLabel", "Run all queries"
+        keysString = keysString.substring(0, keysString.length - 1);
+        url = "validations/run" + keysString
 
-  runQueries: ->
-    keysArray = Object.keys(@keys)
-    keysString = ""
-    if keysArray.length > 0
-      keysString = "?keys="
-      for key in keysArray
-        if @keys[key]
-          keysString=keysString.concat(escape(key) + ",")
+        $.getJSON url, (data) =>
+            @runQueriesResults = data
+            @set "buttonLabel", "Back"
+            @toggleCombinedTables()
 
-    keysString = keysString.substring(0, keysString.length - 1);
-    url = "validations/run" + keysString
+    actions:
+        showValidation: (validation) ->
+            @set "validation-to-show", validation
+            false
 
-    $.getJSON url, (data) =>
-      @runQueriesResults = data
-      @set "buttonLabel", "Back"
-      @toggleCombinedTables()
+        manageKeys: (isSelected, key) ->
+            @keys[key] = isSelected
+            @toggleButtonLabel()
+            false
 
-  actions:
-    showValidation: (validation) ->
-      @set "validation-to-show", validation
-      false
+        runSelectedQueries: ->
+            unless @combinedTables
+                @runQueries()
 
-    manageKeys: (isSelected, key) ->
-      @keys[key] = isSelected
-      @toggleButtonLabel()
-      false
+            else
+                @set "keys", {}
+                @set "runQueriesResults", {}
+                @set "validation-to-show", null
+                @toggleButtonLabel()
+                @toggleCombinedTables()
 
-    runSelectedQueries: ->
-      unless @combinedTables
-        @runQueries()
-
-      else
-        @set "keys", {}
-        @set "runQueriesResults", {}
-        @set "validation-to-show", null
-        @toggleButtonLabel()
-        @toggleCombinedTables()
-
-      false
+            false
 
 `export default ValidationsComponentComponent`
