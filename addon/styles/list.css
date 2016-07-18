@@ -1,12 +1,10 @@
 @import 'button-colors.css';
+
 button.borderless {
   border: 0 none;
 }
 .list-group-item {
   border: 0 none;
-}
-.settings .right .detail {
-    display: inline-block;
 }
 button.btn.btn-primary-outline {
   border-top-left-radius: 0;
@@ -31,16 +29,39 @@ label.btn.btn-block.borderless {
   background-color: transparent;
 }
 .list-group-item.empty-list {
-  /*border: 1px;
-  /*border-color: black;*/
+
 }
 .empty-list {
   min-height: 100px;
   text-align: center;
-  /*border: 1 none;*/
 }
 .empty-list .empty-message {
   display: inline-block;
   color: #555;
   line-height: 100px;
+}
+
+.query-nav,
+.query-results {
+    padding: 25px;
+}
+
+.query-details {
+
+}
+
+.query-details .detail-block {
+    margin: 10px 0;
+}
+
+.query-details .detail-block > h2 {
+    font-weight: 100;
+    padding: 0 0 3px 0;
+    color: #808080;
+    font-size: 15px;
+    font-size: 1.5rem;
+}
+
+.query-details .detail-block > div {
+    line-height: 1.2;
 }

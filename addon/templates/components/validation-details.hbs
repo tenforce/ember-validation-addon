@@ -1,19 +1,25 @@
-<div class="detailblock">
-  <span>Description:</span> <span>{{description}}</span>
+<div class="query-details">
+    <div class="detail-block">
+      <h2>Description:</h2>
+      <div>{{description}}</div>
+    </div>
+
+    <div class="detail-block">
+      <h2>Query:</h2>
+      <div>{{query}}</div>
+    </div>
+
+    {{#unless typesArrayEmpty}}
+      <div class="detail-block">
+        <h2>Types:</h2>
+        <div>{{types}}</div>
+      </div>
+    {{/unless}}
+
+    {{#unless parameterArrayEmpty}}
+      <div class="detail-block">
+        <h2>Parameters:</h2>
+        <div>{{parameters}}</div>
+      </div>
+    {{/unless}}
 </div>
-
-<div class="detailblock">
-  <span>Query:</span> <span>{{query}}</span>
-</div>
-
-{{#unless typesArrayEmpty}}
-  <div class="detailblock">
-    <span>Types:</span> <span>{{types}}</span>
-  </div>
-{{/unless}}
-
-{{#unless parameterArrayEmpty}}
-  <div class="detailblock">
-    <span>Parameters:</span> <span>{{parameters}}</span>
-  </div>
-{{/unless}}
