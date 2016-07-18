@@ -5,6 +5,9 @@ button.borderless {
 .list-group-item {
   border: 0 none;
 }
+.settings .right .detail {
+    display: inline-block;
+}
 button.btn.btn-primary-outline {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -30,7 +33,6 @@ label.btn.btn-block.borderless {
 .list-group-item.empty-list {
   /*border: 1px;
   /*border-color: black;*/
-  */
 }
 .empty-list {
   min-height: 100px;
