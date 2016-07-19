@@ -46,6 +46,23 @@ label.btn.btn-block.borderless {
     padding: 25px;
 }
 
+.query-nav .list-group {
+    box-shadow: none;
+    padding: 0;
+}
+
+.query-nav .list-group-item {
+    padding: 10px 10px 0 0;
+}
+
+.query-nav .input-group-btn {
+    width: auto;
+}
+
+.query-nav .btn {
+    width: auto;
+}
+
 .query-results .empty-message {
     text-align: center;
 }
@@ -69,4 +86,8 @@ label.btn.btn-block.borderless {
 
 .query-details .detail-block > div {
     line-height: 1.2;
+}
+
+.combinedResultDescription {
+    padding: 10px 0;
 }
