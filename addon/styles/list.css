@@ -46,6 +46,10 @@ label.btn.btn-block.borderless {
     padding: 25px;
 }
 
+.query-results .empty-message {
+    text-align: center;
+}
+
 .query-details {
 
 }
@@ -60,6 +64,7 @@ label.btn.btn-block.borderless {
     color: #808080;
     font-size: 15px;
     font-size: 1.5rem;
+    margin: 0;
 }
 
 .query-details .detail-block > div {
