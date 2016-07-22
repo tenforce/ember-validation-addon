@@ -6,9 +6,14 @@ ValidationsComponentComponent = Ember.Component.extend
     keys: {}
     buttonLabel: "Run all queries"
     combinedTables: false
+    cache: true
+    cacheLabel: "Using cache"
 
     toggleCombinedTables : ->
         @set "combinedTables", !@get "combinedTables"
+
+
+
 
     toggleButtonLabel: ->
         keysArray = Object.keys(@keys)
@@ -39,26 +44,56 @@ ValidationsComponentComponent = Ember.Component.extend
             @toggleCombinedTables()
 
     actions:
-        showValidation: (validation) ->
-            @set "validation-to-show", validation
-            false
-
-        manageKeys: (isSelected, key) ->
-            @keys[key] = isSelected
-            @toggleButtonLabel()
-            false
-
-        runSelectedQueries: ->
-            unless @combinedTables
-                @runQueries()
-
+        setTimeOut : (timeOut)->
+            timeOut = parseInt timeOut
+            if timeOut > 24
+                @set "timeOut", 24
+            else if timeOut < 1
+                @set "timeOut", 1
             else
-                @set "keys", {}
-                @set "runQueriesResults", {}
-                @set "validation-to-show", null
-                @toggleButtonLabel()
-                @toggleCombinedTables()
+                @set "timeOut", timeOut
 
-            false
+        saveTimeOut : ->
+            timeOut = @get "timeOut"
+            $.ajax 'validations/set_timeout',
+                type: 'POST'
+                dataType: 'json'
+                contentType: "application/json; charset=utf-8"
+                data: JSON.stringify({ time: timeOut })
+                success: (data) ->
+                    console.log data
+
+
+
+    toggleCache : ->
+        @set "cache", !@get "cache"
+
+        if @get "cache"
+            @set "cacheLabel", "Using cache"
+        else
+            @set "cacheLabel", "Not using cache"
+
+
+    showValidation: (validation) ->
+        @set "validation-to-show", validation
+        false
+
+    manageKeys: (isSelected, key) ->
+        @keys[key] = isSelected
+        @toggleButtonLabel()
+        false
+
+    runSelectedQueries: ->
+        unless @combinedTables
+            @runQueries()
+
+        else
+            @set "keys", {}
+            @set "runQueriesResults", {}
+            @set "validation-to-show", null
+            @toggleButtonLabel()
+            @toggleCombinedTables()
+
+        false
 
 `export default ValidationsComponentComponent`
