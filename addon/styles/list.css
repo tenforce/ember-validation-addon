@@ -26,7 +26,6 @@ label.btn.btn-block.borderless {
 .input-group-addon {
     background-color: transparent;
 }
-.list-group-item.empty-list {}
 .empty-list {
     min-height: 100px;
     text-align: center;
@@ -55,7 +54,6 @@ label.btn.btn-block.borderless {
 .query-results .empty-message {
     text-align: center;
 }
-.query-details {}
 .query-details .detail-block {
     margin: 10px 0;
 }
