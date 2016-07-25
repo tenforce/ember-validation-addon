@@ -12,9 +12,6 @@ ValidationsComponentComponent = Ember.Component.extend
     toggleCombinedTables : ->
         @set "combinedTables", !@get "combinedTables"
 
-
-
-
     toggleButtonLabel: ->
         keysArray = Object.keys(@keys)
 
@@ -61,39 +58,38 @@ ValidationsComponentComponent = Ember.Component.extend
                 contentType: "application/json; charset=utf-8"
                 data: JSON.stringify({ time: timeOut })
                 success: (data) ->
-                    console.log data
+                    # console.log data
+
+        toggleCache : ->
+            console.log "cache: " + @get "timeOut"
+            @set "cache", !@get "cache"
+
+            if @get "cache"
+                @set "cacheLabel", "Using cache"
+            else
+                @set "cacheLabel", "Not using cache"
 
 
+        showValidation: (validation) ->
+            @set "validation-to-show", validation
+            false
 
-    toggleCache : ->
-        @set "cache", !@get "cache"
-
-        if @get "cache"
-            @set "cacheLabel", "Using cache"
-        else
-            @set "cacheLabel", "Not using cache"
-
-
-    showValidation: (validation) ->
-        @set "validation-to-show", validation
-        false
-
-    manageKeys: (isSelected, key) ->
-        @keys[key] = isSelected
-        @toggleButtonLabel()
-        false
-
-    runSelectedQueries: ->
-        unless @combinedTables
-            @runQueries()
-
-        else
-            @set "keys", {}
-            @set "runQueriesResults", {}
-            @set "validation-to-show", null
+        manageKeys: (isSelected, key) ->
+            @keys[key] = isSelected
             @toggleButtonLabel()
-            @toggleCombinedTables()
+            false
 
-        false
+        runSelectedQueries: ->
+            unless @combinedTables
+                @runQueries()
+
+            else
+                @set "keys", {}
+                @set "runQueriesResults", {}
+                @set "validation-to-show", null
+                @toggleButtonLabel()
+                @toggleCombinedTables()
+
+            false
 
 `export default ValidationsComponentComponent`

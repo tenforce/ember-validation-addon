@@ -5,18 +5,22 @@ ValidationAddonComponent = Ember.Component.extend
     layout: layout
     store: Ember.inject.service()
     data: {}
-    timeOut: 24
+    timeOut: 0
 
-    showComponent: Ember.computed ->
-        if $.isEmptyObject(@data) then false else true
+    showComponent: Ember.computed 'data', 'timeOut', ->
+        if $.isEmptyObject(@data) then false else if @timeOut > 0 then true else false
 
     didReceiveAttrs: ->
-        @set "data", @get('store').findAll('validation')
+        data = {}
+        timeOut = 0
 
         url = "validations/get_timeout"
-
         $.getJSON url, (data) =>
-            @set "timeOut" , data
+            timeOutNumber = JSON.stringify data['data']['attributes']['timeout']
+            @set "timeOut" , parseInt timeOutNumber
+
+        @set "data", @get('store').findAll('validation')
+
 
 
 `export default ValidationAddonComponent`

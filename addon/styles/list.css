@@ -91,3 +91,7 @@ label.btn.btn-block.borderless {
 .combinedResultDescription {
     padding: 10px 0;
 }
+
+input.values {
+    border: 1px solid #0492D0;
+}

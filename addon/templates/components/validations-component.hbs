@@ -1,13 +1,14 @@
 <div class="query-nav">
-
-    <button type="button" class="btn btn-info-outline" {{action "runSelectedQueries"}}>
+    <button type="button" class="btn" {{action "runSelectedQueries"}}>
         {{buttonLabel}}
     </button>
-    <button type="button" class="btn btn-warning-outline" {{action "toggleCache"}}>
+
+    <button type="button" class="btn" {{action "toggleCache"}}>
         {{cacheLabel}}
     </button>
-    <input type="number" value={{timeOut}} onchange={{action 'setTimeOut' value='target.value'}} min="1" max="24"/>
-    <button type="button" class="btn btn-warning-outline" {{action "saveTimeOut"}}>
+
+    <input type="number" class="values" value={{timeOut}} onchange= {{action 'setTimeOut' value='target.value'}} min="1" max="24" />
+    <button type="button" class="btn" {{action "saveTimeOut"}}>
         Save timeout
     </button>
 
