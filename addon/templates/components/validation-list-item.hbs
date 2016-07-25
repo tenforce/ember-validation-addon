@@ -1,16 +1,24 @@
-<div class="input-group">
-  <div class="input-group-btn" data-toggle="buttons" {{action "setChecked"}}>
-    {{#if checked}}
-      <label class="btn active">
-        <input type="checkbox" /> Select
-      </label>
+<div class="">
+    {{!-- TODO: DIFFERENT DESIGN FOR SELECTED / NOT SELECTED --}}
+
+    {{!-- {{#if checked}}
+        <button type="button" class="btn" {{action "setChecked"}}>
+            {{checkedLabel}}
+        </button>
     {{else}}
-      <label class="btn">
-        <input type="checkbox" /> Select
-      </label>
-    {{/if}}
-  </div>
-  <button type="button" class="btn" {{action "showValidation"}}>
-    {{validation.name}}
-  </button>
+        <button type="button" class="btn" {{action "setChecked"}}>
+            {{notCheckedLabel}}
+        </button>
+    {{/if}} --}}
+
+    <button type="button" class="btn" {{action "setChecked"}}>
+        {{#if checked}}
+            {{checkedLabel}}
+        {{else}}
+            {{notCheckedLabel}}
+        {{/if}}
+    </button>
+    <button type="button" class="btn" {{action "showValidation"}}>
+        {{validation.name}}
+    </button>
 </div>

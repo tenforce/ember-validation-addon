@@ -4,6 +4,8 @@
 ValidationListItemComponent = Ember.Component.extend
   layout: layout
   checked: false
+  notCheckedLabel: "Select"
+  checkedLabel: "Selected"
 
   actions :
     showValidation: ->
