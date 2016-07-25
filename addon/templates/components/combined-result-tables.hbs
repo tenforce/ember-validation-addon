@@ -1,9 +1,10 @@
 {{#each-in relationshipsHash as |relationkey relationvalue|}}
-    <div class="combinedResultDescription">
-        {{relationvalue.attributes.description}}
-    </div>
-
-    <div class="combinedResultTable">
-        {{result-table included=(get includedHash relationkey) parameters=relationvalue.attributes.parameters}}
+    <div class="result-table">
+        <div class="combinedResultDescription">
+            {{relationvalue.attributes.description}}
+        </div>
+        <div class="combinedResultTable">
+            {{result-table included=(get includedHash relationkey) parameters=relationvalue.attributes.parameters}}
+        </div>
     </div>
 {{/each-in}}

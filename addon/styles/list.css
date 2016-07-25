@@ -76,3 +76,21 @@ label.btn.btn-block.borderless {
 input.values {
     border: 1px solid #0492D0;
 }
+
+/* NEW */
+
+.result-table {
+    table-layout: auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.result-table th,
+.result-table td {
+    padding: 5px;
+    text-align: left;
+}
+
+.result-table tr:nth-child(even) {
+    background-color: #FCFCFC;
+}

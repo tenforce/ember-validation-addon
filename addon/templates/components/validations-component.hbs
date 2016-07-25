@@ -1,33 +1,28 @@
-<div class="query-nav">
-    <button type="button" class="btn" {{action "runSelectedQueries"}}>
-        {{buttonLabel}}
-    </button>
-
-    <button type="button" class="btn" {{action "toggleCache"}}>
-        {{cacheLabel}}
-    </button>
-
-    <input type="number" class="values" value={{timeOut}} onchange= {{action 'setTimeOut' value='target.value'}} min="1" max="24" />
-    <button type="button" class="btn" {{action "saveTimeOut"}}>
-        Save timeout
-    </button>
-
+<div class="validation">
+    <div class="left">
+        <div class="main-nav">
+            <button type="button" class="btn" {{action "runSelectedQueries"}}>{{buttonLabel}}</button>
+            <button type="button" class="btn" {{action "toggleCache"}}>{{cacheLabel}}</button>
+            <input type="number" class="values" value={{timeOut}} onchange= {{action 'setTimeOut' value='target.value'}} min="1" max="24" />
+            <button type="button" class="btn" {{action "saveTimeOut"}}>Save timeout</button>
+        </div>
+    </div><!-- /.left -->
+    <div class="right">
     {{#if combinedTables}}
-        <div class="">
+        <div class="subnav">
             {{combined-result-tables relationships=runQueriesResults.data.relationships included=runQueriesResults.included}}
         </div>
     {{else}}
-        <div class="">
+        <div class="subnav">
             {{validation-list-view validations=validationsData manageKeys="manageKeys" showValidation="showValidation"}}
         </div>
         <div class="query-results">
             {{#if validation-to-show}}
                 {{validation-detailed-view validation=validation-to-show cache=cache}}
             {{else}}
-                <div class="empty-message">
-                    Choose a rule!
-                </div>
+                <div class="empty-message">Choose a rule!</div>
             {{/if}}
         </div>
     {{/if}}
-</div>
+    </div><!-- /.right -->
+</div><!-- /.validation -->
