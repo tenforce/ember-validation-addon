@@ -22,7 +22,7 @@
         </div>
         <div class="query-results">
             {{#if validation-to-show}}
-                {{validation-detailed-view validation=validation-to-show}}
+                {{validation-detailed-view validation=validation-to-show cache=cache}}
             {{else}}
                 <div class="empty-message">
                     Choose a rule!

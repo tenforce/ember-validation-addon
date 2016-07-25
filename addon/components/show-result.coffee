@@ -20,6 +20,9 @@ ShowResultComponent = Ember.Component.extend
     actions:
         runQuery: ->
             url = "/validations/validation-result/" + escape(@id)
+            unless @cache
+                url +="?no_cache="
+
             $.getJSON url, (data) =>
                 @results = data
                 @toggleDisableButton()

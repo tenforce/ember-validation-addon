@@ -25,15 +25,22 @@ ValidationsComponentComponent = Ember.Component.extend
 
     runQueries: ->
         keysArray = Object.keys(@keys)
-        keysString = ""
+        params = ""
         if keysArray.length > 0
-            keysString = "?keys="
+            params = "?keys="
             for key in keysArray
                 if @keys[key]
-                    keysString=keysString.concat(escape(key) + ",")
+                    params=params.concat(escape(key) + ",")
 
-        keysString = keysString.substring(0, keysString.length - 1);
-        url = "validations/run" + keysString
+        params = params.substring(0, params.length - 1);
+
+        unless @cache
+            if params.length > 0
+                params +="&no_cache="
+            else
+                params +="?no_cache="
+
+        url = "validations/run" + params
 
         $.getJSON url, (data) =>
             @runQueriesResults = data
@@ -61,7 +68,6 @@ ValidationsComponentComponent = Ember.Component.extend
                     # console.log data
 
         toggleCache : ->
-            console.log "cache: " + @get "timeOut"
             @set "cache", !@get "cache"
 
             if @get "cache"
