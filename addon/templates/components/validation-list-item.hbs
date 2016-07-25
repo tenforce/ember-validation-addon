@@ -1,15 +1,13 @@
 <div class="">
     {{!-- TODO: DIFFERENT DESIGN FOR SELECTED / NOT SELECTED --}}
 
-    {{!-- {{#if checked}}
-        <button type="button" class="btn" {{action "setChecked"}}>
-            {{checkedLabel}}
-        </button>
+    {{!--
+    {{#if checked}}
+        <button type="button" class="btn" {{action "setChecked"}}>{{checkedLabel}}</button>
     {{else}}
-        <button type="button" class="btn" {{action "setChecked"}}>
-            {{notCheckedLabel}}
-        </button>
-    {{/if}} --}}
+        <button type="button" class="btn" {{action "setChecked"}}>{{notCheckedLabel}}</button>
+    {{/if}}
+    --}}
 
     <button type="button" class="btn" {{action "setChecked"}}>
         {{#if checked}}
@@ -18,7 +16,5 @@
             {{notCheckedLabel}}
         {{/if}}
     </button>
-    <button type="button" class="btn" {{action "showValidation"}}>
-        {{validation.name}}
-    </button>
+    <button type="button" class="btn" {{action "showValidation"}}>{{validation.name}}</button>
 </div>

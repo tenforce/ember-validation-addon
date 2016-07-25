@@ -1,15 +1,12 @@
 {{#if validation}}
-  <div class="margin-top">
+  <div class="">
     {{validation-details description=validation.description query=validation.query types=validation.types parameters=validation.parameters}}
   </div>
-
-  <div class="margin-top">
+  <div class="">
     {{show-result id=validation.id parameters=validation.parameters cache=cache}}
   </div>
 {{else}}
   <div class="">
-    <div class="empty-message">
-      Choose a rule!
-    </div>
+    <div class="empty-message">Choose a rule!</div>
   </div>
 {{/if}}

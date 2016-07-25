@@ -1,23 +1,23 @@
-<div class="query-details">
-    <div class="detail-block">
+<div class="validation-details">
+    <div class="block description">
       <h2>Description:</h2>
       <div>{{description}}</div>
     </div>
 
-    <div class="detail-block">
+    <div class="block query">
       <h2>Query:</h2>
       <div>{{query}}</div>
     </div>
 
     {{#unless typesArrayEmpty}}
-      <div class="detail-block">
+      <div class="block types">
         <h2>Types:</h2>
         <div>{{types}}</div>
       </div>
     {{/unless}}
 
     {{#unless parameterArrayEmpty}}
-      <div class="detail-block">
+      <div class="block parameters">
         <h2>Parameters:</h2>
         <div>{{parameters}}</div>
       </div>

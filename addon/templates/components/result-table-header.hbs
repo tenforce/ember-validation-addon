@@ -1,16 +1,10 @@
 <tr>
-    <th>
-        uuid
-    </th>
-    <th>
-        type
-    </th>
+    <th>uuid</th>
+    <th>type</th>
     {{#each parameters as |param|}}
         {{#unless (eql param "uuid") }}
             {{#unless (eql param "type") }}
-                <th>
-                    {{param}}
-                </th>
+                <th>{{param}}</th>
             {{/unless}}
         {{/unless}}
     {{/each}}

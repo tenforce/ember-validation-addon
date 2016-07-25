@@ -1,11 +1,7 @@
 {{#each pagedContent as |item|}}
     <tr>
-        <td>
-            {{item.id}}
-        </td>
-        <td>
-            {{item.type}}
-        </td>
+        <td>{{item.id}}</td>
+        <td>{{item.type}}</td>
         {{#each parameters as |param|}}
             {{#unless (eql param "uuid") }}
                 <td>
@@ -17,7 +13,7 @@
 {{/each}}
 
 {{#if displayPagination}}
-    <div class="">
+    <div class="pagination">
         {{page-numbers content=pagedContent}}
     </div>
 {{/if}}
