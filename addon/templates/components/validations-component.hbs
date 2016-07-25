@@ -8,21 +8,19 @@
         </div>
     </div><!-- /.left -->
     <div class="right">
-    {{#if combinedTables}}
-        <div class="subnav">
-            {{combined-result-tables relationships=runQueriesResults.data.relationships included=runQueriesResults.included}}
-        </div>
-    {{else}}
-        <div class="subnav">
-            {{validation-list-view validations=validationsData manageKeys="manageKeys" showValidation="showValidation"}}
-        </div>
-        <div class="query-results">
-            {{#if validation-to-show}}
-                {{validation-detailed-view validation=validation-to-show cache=cache}}
+        <div class="output">
+            {{#if combinedTables}}
+                {{combined-result-tables relationships=runQueriesResults.data.relationships included=runQueriesResults.included}}
             {{else}}
-                <div class="empty-message">Choose a rule!</div>
+                {{validation-list-view validations=validationsData manageKeys="manageKeys" showValidation="showValidation"}}
+                <div class="query-results">
+                    {{#if validation-to-show}}
+                        {{validation-detailed-view validation=validation-to-show cache=cache}}
+                    {{else}}
+                        <div class="empty-message">Choose a rule!</div>
+                    {{/if}}
+                </div>
             {{/if}}
         </div>
-    {{/if}}
     </div><!-- /.right -->
 </div><!-- /.validation -->
