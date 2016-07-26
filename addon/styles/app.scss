@@ -1,10 +1,31 @@
 .validation {
     .left {
+        .main-nav {
 
+        }
+
+        .queries-nav {
+
+        }
     }
 
     .right {
+        .output {
+            position: relative;
+            background-color: #FFF;
+            overflow: hidden;
+            padding: 25px;
+            -webkit-box-shadow: 0 0 75px 10px #CCC;
+            -khtml-box-shadow: 0 0 75px 10px #CCC;
+            -moz-box-shadow: 0 0 75px 10px #CCC;
+            -ms-box-shadow: 0 0 75px 10px #CCC;
+            -o-box-shadow: 0 0 75px 10px #CCC;
+            box-shadow: 0 0 75px 10px #CCC;
 
+            .emtpy-message {
+                color: #777;
+            }
+        }
     }
 }
 
