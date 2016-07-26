@@ -7,7 +7,7 @@
         float: left;
 
         .main__nav {
-            margin: 0 0 30px;
+            margin: 0 0 20px;
 
             .btn--master {
                 display: block;
@@ -60,7 +60,7 @@
 
             .shadow {
                 height: 20px;
-                margin: -25px 0 40px -56px;
+                margin: -25px 0 30px -56px;
                 position: relative;
                 background-color: #FFF;
                 border-bottom: 1px solid #EEE;
@@ -130,7 +130,7 @@
 
                 .btn--timeout {
                     font-size: 14px;
-                    font-size: 14rem;
+                    font-size: 1.4rem;
                     background-color: #0492D0;
                     color: #FFF;
                     padding: 4px 10px;
@@ -142,15 +142,23 @@
         }
 
         .queries__nav {
-            margin: 30px 0;
+            margin: 20px 0;
 
             .nav__item {
                 position: relative;
                 margin: 10px 0;
 
                 .btn--checkbox {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    margin: 1px 0 0 0;
+                    font-size: 1.6rem;
                 }
                 .btn--label {
+                    border-bottom: 1px dashed;
+                    margin: 0 0 0 20px;
+                    font-size: 1.6rem;
                 }
             }
 
@@ -192,6 +200,7 @@
 
             .empty-message {
                 color: #777;
+                font-style: italic;
             }
 
             table {
@@ -233,7 +242,17 @@
                 }
 
                 .validation__table {
+                    margin: 25px 0 0;
 
+                    table {
+                        margin: 25px 0 0;
+
+                        .empty-message {
+                            td {
+                                padding: 10px 0;
+                            }
+                        }
+                    }
                 }
             }
         }
