@@ -6,7 +6,7 @@
         padding: 0 10px 15px 25px;
         float: left;
 
-        .main-nav {
+        .main__nav {
             .btn {
                 &.btn--master {
                     display: block;
@@ -93,7 +93,16 @@
             }
         }
 
-        .queries-nav {
+        .queries__nav {
+            .nav__item {
+                .btn--checkbox {
+
+                }
+                .btn--label {
+                    
+                }
+            }
+
             .btn {
                 &.btn--checkbox {
                     &:before {

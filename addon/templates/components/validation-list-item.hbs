@@ -1,11 +1,11 @@
-<div class="">
+<div class="nav__item">
     {{!-- TODO: DIFFERENT DESIGN FOR SELECTED / NOT SELECTED --}}
-    <button type="button" class="btn btn--checkbox" {{action "setChecked"}}>
+    <button type="button" class="btn btn--checkbox {{if checked "btn--checked"}}" {{action "setChecked"}}>
         {{#if checked}}
             {{checkedLabel}}
         {{else}}
             {{notCheckedLabel}}
         {{/if}}
     </button>
-    <button type="button" class="btn" {{action "showValidation"}}>{{validation.name}}</button>
+    <button type="button" class="btn btn--label" {{action "showValidation"}}>{{validation.name}}</button>
 </div>

@@ -1,13 +1,13 @@
 <div class="validation">
     <div class="validation--left">
-        <div class="main-nav">
+        <div class="main__nav">
             <button type="button" class="btn btn--master" {{action "runSelectedQueries"}}>{{buttonLabel}}</button>
             <div class="shadow clearfix"></div>
             <button type="button" class="btn" {{action "toggleCache"}}>{{cacheLabel}}</button>
             <input type="number" class="values" value={{timeOut}} onchange= {{action 'setTimeOut' value='target.value'}} min="1" max="24" />
             <button type="button" class="btn" {{action "saveTimeOut"}}>Save timeout</button>
         </div>
-        <div class="queries-nav">
+        <div class="queries__nav">
             {{#if combinedTables}}
             {{else}}
                 {{validation-list-view validations=validationsData manageKeys="manageKeys" showValidation="showValidation"}}
