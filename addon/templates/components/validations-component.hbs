@@ -1,5 +1,5 @@
 <div class="validation">
-    <div class="left">
+    <div class="validation--left">
         <div class="main-nav">
             <button type="button" class="btn btn--master" {{action "runSelectedQueries"}}>{{buttonLabel}}</button>
             <div class="shadow clearfix"></div>
@@ -9,18 +9,20 @@
         </div>
         <div class="queries-nav">
             {{#if combinedTables}}
-                {{combined-result-tables relationships=runQueriesResults.data.relationships included=runQueriesResults.included}}
             {{else}}
                 {{validation-list-view validations=validationsData manageKeys="manageKeys" showValidation="showValidation"}}
             {{/if}}
         </div>
     </div><!-- /.left -->
-    <div class="right">
+    <div class="validation--right">
         <div class="output">
             {{#if validation-to-show}}
                 {{validation-detailed-view validation=validation-to-show cache=cache}}
             {{else}}
                 <div class="empty-message">Choose a rule!</div>
+            {{/if}}
+            {{#if combinedTables}}
+                {{combined-result-tables relationships=runQueriesResults.data.relationships included=runQueriesResults.included}}
             {{/if}}
         </div>
     </div><!-- /.right -->
