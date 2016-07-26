@@ -1,15 +1,6 @@
 <div class="">
     {{!-- TODO: DIFFERENT DESIGN FOR SELECTED / NOT SELECTED --}}
-
-    {{!--
-    {{#if checked}}
-        <button type="button" class="btn" {{action "setChecked"}}>{{checkedLabel}}</button>
-    {{else}}
-        <button type="button" class="btn" {{action "setChecked"}}>{{notCheckedLabel}}</button>
-    {{/if}}
-    --}}
-
-    <button type="button" class="btn" {{action "setChecked"}}>
+    <button type="button" class="btn btn--checkbox {{#if checked}}btn--checked{{/if}}" {{action "setChecked"}}>
         {{#if checked}}
             {{checkedLabel}}
         {{else}}

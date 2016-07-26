@@ -94,7 +94,19 @@
         }
 
         .queries-nav {
+            .btn {
+                &.btn--checkbox {
+                    &:before {
+                        content: "\f096";
+                    }
 
+                    &.btn--checked {
+                        &:before {
+                            content: "\f046";
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -119,24 +131,24 @@
             .empty-message {
                 color: #777;
             }
-        }
-    }
-}
 
-.result-table {
-    table-layout: auto;
-    border-collapse: collapse;
-    width: 100%;
+            table {
+                table-layout: auto;
+                border-collapse: collapse;
+                width: 100%;
 
-    th,
-    td {
-        padding: 5px;
-        text-align: left;
-    }
+                th,
+                td {
+                    padding: 5px;
+                    text-align: left;
+                }
 
-    tr {
-        &:nth-child(even) {
-            background-color: #FCFCFC;
+                tr {
+                    &:nth-child(even) {
+                        background-color: #FCFCFC;
+                    }
+                }
+            }
         }
     }
 }

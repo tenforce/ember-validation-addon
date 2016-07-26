@@ -12,8 +12,10 @@
     </tr>
 {{/each}}
 
-{{#if displayPagination}}
-    <div class="pagination">
-        {{page-numbers content=pagedContent}}
-    </div>
-{{/if}}
+<tr>
+    {{#if displayPagination}}
+        <td colspan="3">
+            {{page-numbers content=pagedContent}}
+        </td>
+    {{/if}}
+</tr>
