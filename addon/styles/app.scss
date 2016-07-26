@@ -11,12 +11,36 @@
                     background-color: #FFF;
                     font-size: 18px;
                     font-size: 1.8rem;
+                    text-align: left;
                     -webkit-box-shadow: 0 0 25px -5px #999;
                     -khtml-box-shadow: 0 0 25px -5px #999;
                     -moz-box-shadow: 0 0 25px -5px #999;
                     -ms-box-shadow: 0 0 25px -5px #999;
                     -o-box-shadow: 0 0 25px -5px #999;
                     box-shadow: 0 0 25px -5px #999;
+
+                    &:hover {
+                        -webkit-box-shadow: 0 0 25px -5px #999;
+                        -khtml-box-shadow: 0 0 25px -5px #999;
+                        -moz-box-shadow: 0 0 25px -5px #999;
+                        -ms-box-shadow: 0 0 25px -5px #999;
+                        -o-box-shadow: 0 0 25px -5px #999;
+                        box-shadow: 0 0 15px -5px #999;
+
+                        &:after {
+                            color: #000;
+                        }
+                    }
+
+                    &:after {
+                        content: "\f101";
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        margin: 6px 20px;
+                        font-size: 2.6rem;
+                        color: #999;
+                    }
                 }
             }
 
@@ -69,7 +93,7 @@
     }
 
     .right {
-        padding: 0 15px 15px 10px;
+        padding: 0 15px 15px;
 
         .output {
             position: relative;
@@ -84,7 +108,7 @@
             box-shadow: 0 0 75px 10px #CCC;
 
             .emtpy-message {
-                color: #777;
+                color: #000;
             }
         }
     }
