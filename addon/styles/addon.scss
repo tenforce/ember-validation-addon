@@ -119,18 +119,20 @@
                 }
             }
 
-            .btn {
-                &.btn--checkbox {
-                    &:before {
-                        content: "\f096";
-                    }
+            .btn--checkbox {
+                &:before {
+                    content: "\f096";
+                }
 
-                    &.btn--checked {
-                        &:before {
-                            content: "\f046";
-                        }
+                &.btn--checked {
+                    &:before {
+                        content: "\f046";
                     }
                 }
+            }
+
+            .btn--label  {
+
             }
         }
     }
