@@ -253,26 +253,24 @@
 
                             .pagination {
                                 li {
-                                    display: inline;
+                                    display: inline-block;
+                                    border: 1px solid transparent;
+                                    -webkit-border-radius: 3px;
+                                    -khtml-border-radius: 3px;
+                                    -moz-border-radius: 3px;
+                                    -ms-border-radius: 3px;
+                                    -o-border-radius: 3px;
+                                    border-radius: 3px;
+                                    margin: 0 1px;
+                                    line-height: 1;
 
                                     a {
-                                        display: inline-block;
-                                        border: 1px solid transparent;
-                                        -webkit-border-radius: 3px;
-                                        -khtml-border-radius: 3px;
-                                        -moz-border-radius: 3px;
-                                        -ms-border-radius: 3px;
-                                        -o-border-radius: 3px;
-                                        border-radius: 3px;
-                                        padding: 0 5px;
-                                        margin: 0 1px;
-                                        line-height: 1;
+                                        display: block;
+                                        padding: 5px 10px;
                                     }
 
                                     &.disabled {
-                                        a {
-                                            color: #AAA;
-                                        }
+                                        color: #AAA;
                                     }
 
                                     &.active {
