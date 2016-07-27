@@ -152,7 +152,6 @@
 
             .nav__item {
                 position: relative;
-                margin: 0px 0;
                 display: inline-block;
                 padding: 10px;
                 -webkit-border-radius: 5px;
@@ -197,6 +196,9 @@
                     font-size: 1.6rem;
                     text-align: left;
                     color: #555;
+                    -webkit-transition: all .3s ease-in-out;
+                    -moz-transition: all .3s ease-in-out;
+                    -o-transition: all .3s ease-in-out;
                     transition: all .3s ease-in-out;
                 }
             }
@@ -211,10 +213,6 @@
                         content: "\f046";
                     }
                 }
-            }
-
-            .btn--label  {
-
             }
         }
     }
@@ -271,7 +269,16 @@
                 border-radius: 3px;
 
                 thead {
-                    background-color: rgba(0, 0, 0, .09);
+                    background-color: rgba(0, 0, 0, 0.27);
+
+                    tr {
+                        th {
+                            font-weight: 100;
+                            font-size: 14px;
+                            font-size: 1.4rem;
+                            color: #FFF;
+                        }
+                    }
                 }
 
                 th,
