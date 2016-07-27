@@ -381,6 +381,10 @@
                 .validation__table {
                     margin: 25px 0 0;
 
+                    .btn[disabled] {
+                        display: none;
+                    }
+
                     table {
                         margin: 25px 0 0;
                     }
