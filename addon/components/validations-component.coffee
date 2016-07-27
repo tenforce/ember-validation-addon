@@ -11,6 +11,10 @@ ValidationsComponentComponent = Ember.Component.extend
 
     toggleCombinedTables : ->
         @set "combinedTables", !@get "combinedTables"
+        if ((@get 'buttonLabel') == 'Back')
+            $('#runQueries').addClass('btn--back')
+        else
+            $('#runQueries').removeClass('btn--back')
 
     toggleButtonLabel: ->
         keysArray = Object.keys(@keys)
@@ -69,11 +73,12 @@ ValidationsComponentComponent = Ember.Component.extend
 
         toggleCache : ->
             @set "cache", !@get "cache"
-
             if @get "cache"
                 @set "cacheLabel", "Using cache"
+                $('#cacheButton').addClass('btn--checked')
             else
                 @set "cacheLabel", "Not using cache"
+                $('#cacheButton').removeClass('btn--checked')
 
 
         showValidation: (validation) ->
