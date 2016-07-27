@@ -152,22 +152,52 @@
 
             .nav__item {
                 position: relative;
-                margin: 10px 0;
+                margin: 0px 0;
+                display: inline-block;
+                padding: 10px;
+                -webkit-border-radius: 5px;
+                -khtml-border-radius: 5px;
+                -moz-border-radius: 5px;
+                -ms-border-radius: 5px;
+                -o-border-radius: 5px;
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: #FFF;
+                    -webkit-box-shadow: 0 0 15px -5px #999;
+                    -khtml-box-shadow: 0 0 15px -5px #999;
+                    -moz-box-shadow: 0 0 15px -5px #999;
+                    -ms-box-shadow: 0 0 15px -5px #999;
+                    -o-box-shadow: 0 0 15px -5px #999;
+                    box-shadow: 0 0 15px -5px #999;
+
+                    .btn--checkbox {
+                        border-right: 1px solid #F4F4F4;
+                    }
+
+                    .btn--label {
+                        border-bottom: 1px dashed;
+                        margin: 0 0 0 31px;
+                    }
+                }
 
                 .btn--checkbox {
                     position: absolute;
                     left: 0;
                     top: 0;
-                    margin: 1px 0 0;
+                    margin: 0 10px 0 0;
+                    padding: 11px 8px 10px 10px;
                     font-size: 16px;
                     font-size: 1.6rem;
                 }
                 .btn--label {
-                    border-bottom: 1px dashed;
+                    border-bottom: 1px dashed transparent;
                     margin: 0 0 0 20px;
                     font-size: 16px;
                     font-size: 1.6rem;
                     text-align: left;
+                    color: #555;
+                    transition: all .3s ease-in-out;
                 }
             }
 
