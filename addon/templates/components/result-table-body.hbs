@@ -1,15 +1,5 @@
 {{#each pagedContent as |item|}}
-    <tr>
-        <td>{{item.id}}</td>
-        <td>{{item.type}}</td>
-        {{#each parameters as |param|}}
-            {{#unless (eql param "uuid") }}
-                <td>
-                    {{get item.attributes param}}
-                </td>
-            {{/unless}}
-        {{/each}}
-    </tr>
+    {{result-table-body-row parameters=parameters item=item types=types}}
 {{/each}}
 
 <tr class="pagination-row">

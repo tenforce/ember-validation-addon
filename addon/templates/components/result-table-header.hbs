@@ -1,5 +1,8 @@
 <tr>
     <th>uuid</th>
+    {{#if showConcept}}
+        <th>concept</th>
+    {{/if}}
     <th>type</th>
     {{#each parameters as |param|}}
         {{#unless (eql param "uuid") }}
