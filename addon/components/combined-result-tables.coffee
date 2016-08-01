@@ -18,8 +18,11 @@ CombinedResultTablesComponent = Ember.Component.extend
           ruleKey = item.attributes.ruleKey
           id = item.id
           if ruleKey
-            id = item.id
-            @includedHash[ruleKey].push(item)
+            type = item.type
+            unless @includedHash[ruleKey][type]
+              @includedHash[ruleKey][type] = []
+            @includedHash[ruleKey][type].push(item)
+            # @includedHash[ruleKey].push(item)
           else
             @relationshipsHash[id] = item
 
@@ -27,6 +30,6 @@ CombinedResultTablesComponent = Ember.Component.extend
     # we create a different keyHash for each key that appears in the relationships
     if @relationships
       for relation in @relationships
-        @includedHash[relation.id] = []
+        @includedHash[relation.id] = {}
 
 `export default CombinedResultTablesComponent`

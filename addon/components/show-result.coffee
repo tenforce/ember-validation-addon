@@ -5,6 +5,7 @@ ShowResultComponent = Ember.Component.extend
     layout: layout
     hideTable : true
     disableButton: false
+    separatedIncluded: {}
 
     didReceiveAttrs: ->
         @set "disableButton", false
@@ -17,6 +18,14 @@ ShowResultComponent = Ember.Component.extend
         @set "hideTable", !@get "hideTable"
         @rerender()
 
+    separateTypes: ->
+      for type in @get('results.data.attributes.types')
+          @get('separatedIncluded')[type] = []
+
+      for item in @get('results.included')
+        if @get('separatedIncluded')[item.type]
+          @get('separatedIncluded')[item.type].pushObject(item)
+
     actions:
         runQuery: ->
             url = "/validations/validation-result/" + escape(@id)
@@ -24,7 +33,8 @@ ShowResultComponent = Ember.Component.extend
                 url +="?no_cache="
 
             $.getJSON url, (data) =>
-                @results = data
+                @set 'results', data
+                @separateTypes()
                 @toggleDisableButton()
                 @toggleHideTable()
 

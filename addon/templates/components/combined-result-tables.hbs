@@ -4,7 +4,10 @@
             {{relationvalue.attributes.description}}
         </div>
         <div class="combinedResultTable">
-            {{result-table included=(get includedHash relationkey) parameters=relationvalue.attributes.parameters}}
+            {{#each relationvalue.attributes.types as |type|}}
+            {{!-- {{#each-in (get includedHash relationkey) as |param|}} --}}
+                {{result-table included=(get (get includedHash relationkey) type) parameters=relationvalue.attributes.parameters types=type}}
+            {{/each}}
         </div>
     </div>
 {{/each-in}}

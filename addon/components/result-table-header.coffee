@@ -6,6 +6,6 @@ ResultTableHeaderComponent = Ember.Component.extend
   tagName: 'thead'
 
   showConcept: Ember.computed ->
-      if @get('types').indexOf('concept')>=0 then true else false
+      if @get('types') == 'concept' then true else false
 
 `export default ResultTableHeaderComponent`

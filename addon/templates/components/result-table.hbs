@@ -1,6 +1,6 @@
 <table>
   {{#if isEmpty}}
-    {{result-table-header-empty}}
+    {{result-table-header-empty types=types}}
   {{else}}
     {{result-table-header parameters=parameters types=types}} {{result-table-body parameters=parameters types=types included=included}}
   {{/if}}
