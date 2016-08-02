@@ -262,6 +262,11 @@
                     color: #333;
                     font-weight: 100;
                 }
+                .tableTypeMessage {
+                    padding: 15px 0;
+                    color: #333;
+                    font-weight: 100;
+                }
             }
 
             table {
@@ -382,7 +387,11 @@
                     .btn[disabled] {
                         display: none;
                     }
-
+                    .tableTypeMessage {
+                        margin-top: 25px;
+                        color: #333;
+                        font-weight: 100;
+                    }
                     table {
                         margin: 25px 0 0;
                     }
