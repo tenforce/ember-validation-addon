@@ -2,7 +2,7 @@
     <div class="validation--left">
         <div class="main__nav">
             <button type="button" id="runQueries" class="btn--master" {{action "runSelectedQueries"}}>{{buttonLabel}}</button>
-            <button type="button" id="cacheButton" class="btn--toggle btn--checked" {{action "toggleCache"}}>{{cacheLabel}}</button>
+            <button type="button" id="cacheButton" class="btn--toggle btn--checked" {{action "toggleCache"}}>Use cache</button>
             <div class="timeout">
                 <input type="number" class="value--timeout" value={{timeOut}} onchange= {{action 'setTimeOut' value='target.value'}} min="1" max="24" />
                 <button type="button" class="btn--timeout" {{action "saveTimeOut"}}>Save timeout</button>
