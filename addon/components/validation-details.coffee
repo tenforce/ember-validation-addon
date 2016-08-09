@@ -5,5 +5,9 @@ ValidationDetailsComponent = Ember.Component.extend
   layout: layout
   parameterArrayEmpty: Ember.computed.empty('parameters')
   typesArrayEmpty: Ember.computed.empty('types')
+  showDetails: false
+  actions:
+    showQueryDetails: ->
+      @toggleProperty('showDetails')
 
 `export default ValidationDetailsComponent`
