@@ -4,6 +4,4 @@
 ValidationDetailedViewComponent = Ember.Component.extend
   layout: layout
 
-
-
 `export default ValidationDetailedViewComponent`

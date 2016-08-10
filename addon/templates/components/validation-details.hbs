@@ -2,19 +2,25 @@
     <h2>Description</h2>
     <div>{{description}}</div>
 </div>
-<div class="block block--query">
-    <h2>Query</h2>
-    <div>{{query}}</div>
+
+<div class="block block--details">
+  <h2 {{action "showQueryDetails"}}>Show query details</h2>
 </div>
-{{#unless typesArrayEmpty}}
-<div class="block block--types">
-    <h2>Type</h2>
-    <div>{{types}}</div>
-</div>
-{{/unless}}
-{{#unless parameterArrayEmpty}}
-<div class="block block--parameters">
-    <h2>Parameters</h2>
-    <div>{{parameters}}</div>
-</div>
-{{/unless}}
+{{#if showDetails}}
+    <div class="block block--query">
+        <h2>Query</h2>
+        <div>{{query}}</div>
+    </div>
+    {{#unless typesArrayEmpty}}
+        <div class="block block--types">
+            <h2>Type</h2>
+            <div>{{types}}</div>
+        </div>
+    {{/unless}}
+    {{#unless parameterArrayEmpty}}
+        <div class="block block--parameters">
+            <h2>Parameters</h2>
+            <div>{{parameters}}</div>
+        </div>
+    {{/unless}}
+{{/if}}
