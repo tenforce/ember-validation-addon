@@ -3,9 +3,8 @@
     <div>{{description}}</div>
 </div>
 
-<div class="block block--details">
-  <h2 {{action "showQueryDetails"}}>Show query details</h2>
-</div>
+<button class="btn btn--small" {{action "showQueryDetails"}}>Show query details</button>
+
 {{#if showDetails}}
     <div class="block block--query">
         <h2>Query</h2>
