@@ -7,5 +7,6 @@ ValidationModel = Model.extend
   query: attr()
   parameters: attr()
   types: attr()
+  show: attr()
 
 `export default ValidationModel`

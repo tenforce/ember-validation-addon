@@ -1,3 +1,5 @@
 {{#each validations as |validation|}}
-  {{validation-list-item validation=validation manageKeys="manageKeys" showValidation="showValidation"}}
+    {{#if (show-validation validation.show platform)}}
+        {{validation-list-item validation=validation manageKeys="manageKeys" showValidation="showValidation"}}
+    {{/if}}
 {{/each}}

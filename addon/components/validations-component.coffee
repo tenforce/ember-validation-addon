@@ -6,8 +6,6 @@ ValidationsComponentComponent = Ember.Component.extend
     keys: {}
     buttonLabel: "Run all queries"
     combinedTables: false
-    cache: true
-    cacheLabel: "Using cache"
 
     toggleCombinedTables : ->
         @set "combinedTables", !@get "combinedTables"
@@ -38,12 +36,6 @@ ValidationsComponentComponent = Ember.Component.extend
 
         params = params.substring(0, params.length - 1);
 
-        unless @cache
-            if params.length > 0
-                params +="&no_cache="
-            else
-                params +="?no_cache="
-
         url = "validations/run" + params
 
         $.getJSON url, (data) =>
@@ -52,35 +44,6 @@ ValidationsComponentComponent = Ember.Component.extend
             @toggleCombinedTables()
 
     actions:
-        setTimeOut : (timeOut)->
-            timeOut = parseInt timeOut
-            if timeOut > 24
-                @set "timeOut", 24
-            else if timeOut < 1
-                @set "timeOut", 1
-            else
-                @set "timeOut", timeOut
-
-        saveTimeOut : ->
-            timeOut = @get "timeOut"
-            $.ajax 'validations/set_timeout',
-                type: 'POST'
-                dataType: 'json'
-                contentType: "application/json; charset=utf-8"
-                data: JSON.stringify({ time: timeOut })
-                success: (data) ->
-                    # console.log data
-
-        toggleCache : ->
-            @set "cache", !@get "cache"
-            if @get "cache"
-                @set "cacheLabel", "Using cache"
-                $('#cacheButton').addClass('btn--checked')
-            else
-                @set "cacheLabel", "Not using cache"
-                $('#cacheButton').removeClass('btn--checked')
-
-
         showValidation: (validation) ->
             @set "validation-to-show", validation
             false
