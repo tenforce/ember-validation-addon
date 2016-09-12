@@ -1,6 +1,6 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('validation-collection', 'Unit | Model | validation collection', {
+moduleForModel('validation-result', 'Unit | Model | validation result', {
   // Specify the other units that are required for this test.
   needs: []
 });

@@ -1,6 +1,7 @@
 <button class="btn" disabled= {{disableButton}} {{action "runQuery"}}>Run query</button>
+
 {{#unless hideTable }}
-    {{#each-in separatedIncluded as |typekey typevalue|}}
-        {{result-table included=typevalue relationships=results.data.relationships parameters=results.data.attributes.parameters types=typekey}}
-    {{/each-in}}
+    {{#each tableContent as |table|}}
+        {{result-table content=table}}
+    {{/each}}
 {{/unless}}
