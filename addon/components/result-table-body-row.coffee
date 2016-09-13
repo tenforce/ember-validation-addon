@@ -6,14 +6,9 @@ ResultTableBodyRowComponent = Ember.Component.extend
     tagName: 'tr'
     store: Ember.inject.service()
     showConcept: Ember.computed ->
-        if @get('types') == 'concept' then true else false
-        # if @get('types').indexOf('concept')>=0 then true else false
+        if @get('type') == 'concept' then true else false
     concept: Ember.computed ->
-        @get('store').find('concept', @get 'item.id')
+        @get('store').find('concept', @get 'item.parameterUuid')
 
-    # didReceiveAttrs: ->
-    #     # if @get 'item.type' == 'concept'
-    #     @get('store').find('concept', @get 'item.id').then (data)=>
-    #         @set 'concept', data
 
 `export default ResultTableBodyRowComponent`

@@ -6,13 +6,6 @@ ShowResultComponent = Ember.Component.extend
     store: Ember.inject.service()
     tableContent: ""
 
-    # toggleDisableButton : ->
-    #     @set "disableButton", !@get "disableButton"
-    #
-    # toggleHideTable : ->
-    #     @set "hideTable", !@get "hideTable"
-    #     @rerender()
-
     actions:
         runQuery: ->
             @get('store').query('validationResultCollection', 'filter[rule-id]': @get('id')).then (validationCollection) =>

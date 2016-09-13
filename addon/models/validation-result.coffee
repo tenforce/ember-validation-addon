@@ -2,9 +2,9 @@
 `import HasManyQuery from 'ember-data-has-many-query'`
 
 Validation =  DS.Model.extend
-  language: DS.attr('string')
-  uuidLabel: DS.attr('string')
-  type: DS.attr('string-set')
-  validationResultCollection: DS.belongsTo('validation-result-collection', {inverse: null})
+  parameterLanguage: DS.attr('string-set')
+  parameterUuid: DS.attr('string')
+  parameterType: DS.attr('string-set')
+  validationResultCollection: DS.belongsTo('validation-result-collection', inverse: null)
 
 `export default Validation`

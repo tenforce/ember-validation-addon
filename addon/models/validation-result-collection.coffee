@@ -7,6 +7,6 @@ Validation =  DS.Model.extend
   ruleId: DS.attr('string')
   parameters: DS.attr('string-set')
   types: DS.attr('string-set')
-  validationResults: DS.hasMany('validation-result')
+  validationResults: DS.hasMany('validation-result', inverse: null)
 
 `export default Validation`
