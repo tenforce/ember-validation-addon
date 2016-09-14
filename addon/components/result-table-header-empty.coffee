@@ -3,6 +3,6 @@
 
 ResultTableHeaderEmptyComponent = Ember.Component.extend
   layout: layout
-  tagName: 'thead'
+  tagName: 'table'
 
 `export default ResultTableHeaderEmptyComponent`

@@ -1,11 +1,20 @@
 <div class="table-type-msg">Results for <span>{{type}}</span> type:</div>
-<table>
-    {{#if isEmpty}}
-        {{result-table-header-empty}}
-    {{else}}
+
+{{#if isEmpty}}
+    {{result-table-header-empty}}
+{{else}}
+    <table>
         {{result-table-header parameters=parameters type=type}} {{result-table-body parameters=parameters type=type content=content}}
-        {{#each-in meta.pagination as |param p|}}
-            <li>{{param}}: {{p}}</li>
-        {{/each-in}}
+    </table>
+    {{#if meta.pagination}}
+        {{#if meta.pagination.prev}}
+            <button type="button" class="prev-button" {{action "previousPage"}}>{{prevLabel}}</button>
+        {{/if}}
+        {{#if totalPages}}
+            <div class="pagination-message">Showing page {{currentPages}} out of {{totalPages}} pages</div>
+        {{/if}}
+        {{#if meta.pagination.next}}
+            <button type="button" class="next-button" {{action "nextPage"}}>{{nextLabel}}</button>
+        {{/if}}
     {{/if}}
-</table>
+{{/if}}
