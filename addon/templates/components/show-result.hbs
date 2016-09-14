@@ -1,9 +1,7 @@
-<button class="btn" disabled= {{disableButton}} {{action "runQuery"}}>Run query</button>
+<button class="btn" disabled= {{disableButton}} {{action "runQuery"}}>Show query results</button>
 
 {{#unless hideTable }}
-    {{#each tableContent as |content|}}
-        {{#each content.types as |type|}}
-            {{result-table content=content type=type}}
-        {{/each}}
+    {{#each types as |type|}}
+        {{result-table id=id type=type}}
     {{/each}}
 {{/unless}}

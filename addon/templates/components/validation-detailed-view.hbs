@@ -5,9 +5,8 @@
             {{validation-details description=validation.description query=validation.query types=validation.types parameters=validation.parameters showDetails=false}}
         </div>
         <div class="validation__table">
-            {{show-result id=validation.id hideTable=true disableButton=false}}
+            {{show-result id=validation.id hideTable=true disableButton=false types=validation.types parameters=validation.parameters}}
         </div>
-
 
     {{else}}
         <div class="empty-message">Choose a rule!</div>

@@ -1,12 +1,10 @@
-{{#if (eql item.type "concept")}}
+{{#if showConcept}}
     <td> <a href="/concepts/{{item.parameterUuid}}">{{item.parameterUuid}}</a> </td>
-
+    <td> <a href="/concepts/{{item.parameterUuid}}">{{await concept.preflabel}}</a> </td>
 {{else}}
     <td>{{item.parameterUuid}}</td>
 {{/if}}
-{{#if showConcept}}
-    <td>{{await concept.preflabel}}</td>
-{{/if}}
+
 <td>{{item.parameterType}}</td>
 {{#each parameters as |param|}}
     {{#unless (eql param "uuid") }}

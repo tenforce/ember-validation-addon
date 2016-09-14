@@ -3,6 +3,9 @@
     {{#if isEmpty}}
         {{result-table-header-empty}}
     {{else}}
-        {{result-table-header parameters=content.parameters type=type}} {{result-table-body parameters=content.parameters type=type content=content.validationResults}}
+        {{result-table-header parameters=parameters type=type}} {{result-table-body parameters=parameters type=type content=content}}
+        {{#each-in meta.pagination as |param p|}}
+            <li>{{param}}: {{p}}</li>
+        {{/each-in}}
     {{/if}}
 </table>
