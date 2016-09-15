@@ -3,41 +3,15 @@
 
 ShowResultComponent = Ember.Component.extend
     layout: layout
-    hideTable : true
-    disableButton: false
-    separatedIncluded: {}
-
-    didReceiveAttrs: ->
-        @set "disableButton", false
-        @set "hideTable", true
-
-    toggleDisableButton : ->
-        @set "disableButton", !@get "disableButton"
-
-    toggleHideTable : ->
-        @set "hideTable", !@get "hideTable"
-        @rerender()
-
-    separateTypes: ->
-      for type in @get('results.data.attributes.types')
-          @get('separatedIncluded')[type] = []
-
-      for item in @get('results.included')
-        if @get('separatedIncluded')[item.type]
-          @get('separatedIncluded')[item.type].pushObject(item)
+    store: Ember.inject.service()
+    tableContent: ""
 
     actions:
         runQuery: ->
-            url = "/validations/validation-result/" + escape(@id)
-            unless @cache
-                url +="?no_cache="
-
-            $.getJSON url, (data) =>
-                @set 'results', data
-                @separateTypes()
-                @toggleDisableButton()
-                @toggleHideTable()
-
+            @get('store').query('validationResultCollection', 'filter[rule-id]': @get('id')).then (validationCollection) =>
+              @set 'tableContent', validationCollection
+              @toggleProperty('disableButton')
+              @toggleProperty('hideTable')
             false
 
 `export default ShowResultComponent`

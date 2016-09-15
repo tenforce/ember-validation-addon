@@ -2,19 +2,12 @@
     <div class="validation--left">
         <div class="main__nav">
             <button type="button" id="runQueries" class="btn--master" {{action "runSelectedQueries"}}>{{buttonLabel}}</button>
-            <!--
-            <button type="button" id="cacheButton" class="btn--toggle btn--checked" {{action "toggleCache"}}>{{cacheLabel}}</button>
-            <div class="timeout">
-                <input type="number" class="value--timeout" value={{timeOut}} onchange= {{action 'setTimeOut' value='target.value'}} min="1" max="24" />
-                <button type="button" class="btn--timeout" {{action "saveTimeOut"}}>Set cache timeout in hours</button>
-            </div>
-            -->
         </div>
         <div class="shadow clearfix"></div>
         <div class="queries__nav">
             {{#if combinedTables}}
             {{else}}
-                {{validation-list-view validations=validationsData manageKeys="manageKeys" showValidation="showValidation"}}
+                {{validation-list-view validations=validationsData manageKeys="manageKeys" showValidation="showValidation" platform=platform}}
             {{/if}}
         </div>
     </div><!-- /.left -->
@@ -24,7 +17,7 @@
                 {{combined-result-tables relationships=runQueriesResults.data.relationships included=runQueriesResults.included}}
             {{else}}
                 {{#if validation-to-show}}
-                    {{validation-detailed-view validation=validation-to-show cache=cache}}
+                    {{validation-detailed-view validation=validation-to-show}}
                 {{else}}
                     <div class="empty-message">Choose a rule!</div>
                 {{/if}}

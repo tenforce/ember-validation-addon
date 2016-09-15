@@ -1,9 +1,8 @@
-<div class="table-type-msg">Results for <span>{{types}}</span> type:</div>
-
+<div class="table-type-msg">Results for <span>{{type}}</span> type:</div>
 <table>
-  {{#if isEmpty}}
-    {{result-table-header-empty types=types}}
-  {{else}}
-    {{result-table-header parameters=parameters types=types}} {{result-table-body parameters=parameters types=types included=included}}
-  {{/if}}
+    {{#if isEmpty}}
+        {{result-table-header-empty}}
+    {{else}}
+        {{result-table-header parameters=content.parameters type=type}} {{result-table-body parameters=content.parameters type=type content=content.validationResults}}
+    {{/if}}
 </table>

@@ -1,17 +1,17 @@
 {{#if (eql item.type "concept")}}
-    <td> <a href="/concepts/{{item.id}}">{{item.id}}</a> </td>
+    <td> <a href="/concepts/{{item.parameterUuid}}">{{item.parameterUuid}}</a> </td>
 
 {{else}}
-    <td>{{item.id}}</td>
+    <td>{{item.parameterUuid}}</td>
 {{/if}}
 {{#if showConcept}}
     <td>{{await concept.preflabel}}</td>
 {{/if}}
-<td>{{item.type}}</td>
+<td>{{item.parameterType}}</td>
 {{#each parameters as |param|}}
     {{#unless (eql param "uuid") }}
         <td>
-            {{get item.attributes param}}
+            {{get item (capitalize-parameter-name param)}}
         </td>
     {{/unless}}
 {{/each}}

@@ -1,11 +1,3 @@
-{{#each pagedContent as |item|}}
-    {{result-table-body-row parameters=parameters item=item types=types}}
+{{#each content as |item|}}
+    {{result-table-body-row parameters=parameters item=item type=type}}
 {{/each}}
-
-<tr class="pagination-row">
-    {{#if displayPagination}}
-        <td colspan="3">
-            {{page-numbers content=pagedContent}}
-        </td>
-    {{/if}}
-</tr>
