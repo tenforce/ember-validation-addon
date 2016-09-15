@@ -43,6 +43,8 @@ ValidationsComponentComponent = Ember.Component.extend
             @set "buttonLabel", "Back"
             @toggleCombinedTables()
 
+        
+
     actions:
         showValidation: (validation) ->
             @set "validation-to-show", validation
