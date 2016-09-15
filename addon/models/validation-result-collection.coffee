@@ -2,9 +2,9 @@
 `import HasManyQuery from 'ember-data-has-many-query'`
 
 Validation =  DS.Model.extend
-  timestamp: DS.attr('string')
   status: DS.attr('string')
-  ruleId: DS.attr('string')
+  timestamp: DS.attr('string-set')
+  ruleId: DS.attr('string-set')
   parameters: DS.attr('string-set')
   types: DS.attr('string-set')
   validationResults: DS.hasMany('validation-result', inverse: null)

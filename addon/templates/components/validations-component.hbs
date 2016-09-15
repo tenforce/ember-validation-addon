@@ -7,7 +7,7 @@
         <div class="queries__nav">
             {{#if combinedTables}}
             {{else}}
-                {{validation-list-view validations=validationsData manageKeys="manageKeys" showValidation="showValidation" platform=platform}}
+                {{validation-list-view validations=validationsData manageKeys="manageKeys" showValidation="showValidation" platform=platform selected=validation-to-show}}
             {{/if}}
         </div>
     </div><!-- /.left -->
