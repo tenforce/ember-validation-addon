@@ -4,46 +4,42 @@
 ResultTableComponent = Ember.Component.extend
     layout: layout
     store: Ember.inject.service()
-    prevLabel: "prev"
-    nextLabel: "next"
     number: 0
+    size: 40
     # params: Ember.computed 'number', ->
     #     console.log 'params'
     #
     meta: ""
+    content: []
 
-    content: Ember.computed 'number', ->
+    didReceiveAttrs: ->
+        @set 'content', []
         @fetchResults()
 
-    updateCountPages: ->
-      last = @get('meta.pagination.last')
-      splitPageNumber
-      if last
-        splitPageNumber =  last.split('page[number]=')[1]
-        splitLastPageNumber = splitPageNumber.split('&')[0]
-        splitLastPageNumber++
-        @set 'currentPages', (@get('number' ) + 1)
-        @set 'totalPages', splitLastPageNumber
+    saveResults: (res) ->
+        @set 'meta', res.get('meta')
+        # @set 'content', res
+        @get('content').addObjects(res)
 
 
     fetchResults: ->
         params = {
-              page: {
-                  number: @get('number')
-              },
-              filter: {
-                  'rule-id': @get('ruleid'),
-                  'parameter-type': @get('type')
-              }
-          }
+            page: {
+                number: @get('number'),
+                size: @get('size')
+            },
+            filter: {
+                'rule-id': @get('ruleid'),
+                'parameter-type': @get('type')
+            }
+            }
         @get('store').query('validationResult', params).then (res) =>
-            @set 'meta', res.get('meta')
-            @set 'content', res
-            @updateCountPages()
+            @saveResults(res)
 
     # return true if the included array or hash is empty
     isEmpty: Ember.computed 'content',->
         if $.isEmptyObject(@get('content')) then true else if @get('content.length') == 0 then true else false
+        false
 
     actions:
         previousPage: ->

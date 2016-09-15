@@ -1,3 +1,4 @@
+<td>{{add index}}</td>
 {{#if showConcept}}
     <td> <a href="/concepts/{{item.parameterUuid}}">{{item.parameterUuid}}</a> </td>
     <td> <a href="/concepts/{{item.parameterUuid}}">{{await concept.preflabel}}</a> </td>
@@ -6,6 +7,7 @@
 {{/if}}
 
 <td>{{item.parameterType}}</td>
+
 {{#each parameters as |param|}}
     {{#unless (eql param "uuid") }}
         <td>

@@ -7,14 +7,8 @@
         {{result-table-header parameters=parameters type=type}} {{result-table-body parameters=parameters type=type content=content}}
     </table>
     {{#if meta.pagination}}
-        {{#if meta.pagination.prev}}
-            <button type="button" class="prev-button" {{action "previousPage"}}>{{prevLabel}}</button>
-        {{/if}}
-        {{#if totalPages}}
-            <div class="pagination-message">Showing page {{currentPages}} out of {{totalPages}} pages</div>
-        {{/if}}
         {{#if meta.pagination.next}}
-            <button type="button" class="next-button" {{action "nextPage"}}>{{nextLabel}}</button>
+            <button type="button" class="btn btn--small" {{action "nextPage"}}>Load the next {{size}} results</button>
         {{/if}}
     {{/if}}
 {{/if}}
