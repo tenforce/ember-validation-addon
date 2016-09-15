@@ -15,7 +15,9 @@
         float: left;
 
         .main__nav {
+            position: relative;
             margin: 0 0 20px;
+            z-index: 999;
 
             .btn--master {
                 display: block;
