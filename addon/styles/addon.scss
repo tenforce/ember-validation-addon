@@ -62,6 +62,7 @@
                 &.btn--back {
                     &:after {
                         content: "\E935";
+                        font-family: 'FontAwesome';
                         left: 0;
                         right: inherit;
                         margin: 9px 0 0 35px;
@@ -70,6 +71,7 @@
 
                 &:after {
                     content: "\E936";
+                    font-family: 'FontAwesome';
                     position: absolute;
                     top: 0;
                     right: 0;
@@ -88,11 +90,13 @@
                 &.btn--checked {
                     &:before {
                         content: "\f205";
+                        font-family: 'FontAwesome';
                     }
                 }
 
                 &:before {
                     content: "\f204";
+                    font-family: 'FontAwesome';
                     padding: 0 5px 00;
                 }
             }
@@ -182,7 +186,8 @@
                 -o-border-radius: 5px;
                 border-radius: 5px;
 
-                &:hover {
+                &:hover,
+                &.nav__item--active {
                     background-color: #FFF;
                     -webkit-box-shadow: 0 0 15px -5px #999;
                     -khtml-box-shadow: 0 0 15px -5px #999;
@@ -228,11 +233,13 @@
             .btn--checkbox {
                 &:before {
                     content: "\f096";
+                    font-family: 'FontAwesome';
                 }
 
                 &.btn--checked {
                     &:before {
                         content: "\f046";
+                        font-family: 'FontAwesome';
                     }
                 }
             }
@@ -318,6 +325,10 @@
                     padding: 7px 10px;
                     text-align: left;
                     vertical-align: top;
+
+                    a {
+                        text-decoration: underline;
+                    }
                 }
 
                 tr {
@@ -396,7 +407,7 @@
                 }
 
                 .validation__table {
-                    margin: 25px 0 0;
+                    margin: 25px 0;
 
                     .btn[disabled] {
                         display: none;
