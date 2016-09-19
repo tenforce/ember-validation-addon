@@ -11,7 +11,8 @@ ValidationAddonComponent = Ember.Component.extend
 
     didReceiveAttrs: ->
         data = {}
-        @set "data", @get('store').findAll('validation')
+        @get('store').findAll('validation').then (res) =>
+          @set "data", res
 
 
 

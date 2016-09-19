@@ -1,12 +1,23 @@
-{{#each-in relationshipsHash as |relationkey relationvalue|}}
-    <div class="result-table">
-        <div class="combinedResultDescription">
-            {{relationvalue.attributes.description}}
-        </div>
-        <div class="combinedResultTable">
-            {{#each relationvalue.attributes.types as |type|}}
-                {{result-table included=(get (get includedHash relationkey) type) parameters=relationvalue.attributes.parameters types=type}}
-            {{/each}}
-        </div>
-    </div>
-{{/each-in}}
+{{#each validations as |validation|}}
+    {{#if (show-validation validation.show platform)}}
+        {{#if (show-combined-result validation.id keys)}}
+            <div class="result-table">
+                <div class="combinedResultDescription">
+                    {{validation.description}}
+                </div>
+                <div class="combinedResultTable">
+                    {{#each validation.types as |type|}}
+                        {{result-table ruleid=validation.id type=type parameters=validation.parameters}}
+                    {{/each}}
+                </div>
+            </div>
+        {{/if}}
+    {{/if}}
+{{/each}}
+
+
+{{#each keys as |ruleid|}}
+    {{#each rulevalues.types as |type|}}
+        {{result-table ruleid=ruleid type=type parameters=rulevalues.parameters}}
+    {{/each}}
+{{/each}}

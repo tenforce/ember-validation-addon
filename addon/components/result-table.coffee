@@ -20,6 +20,7 @@ ResultTableComponent = Ember.Component.extend
         @set 'meta', res.get('meta')
         # @set 'content', res
         @get('content').addObjects(res)
+        if @get('content.length') == 0 then @set('isEmpty', true) else @set('isEmpty', false)
 
 
     fetchResults: ->
@@ -37,9 +38,7 @@ ResultTableComponent = Ember.Component.extend
             @saveResults(res)
 
     # return true if the included array or hash is empty
-    isEmpty: Ember.computed 'content',->
-        if $.isEmptyObject(@get('content')) then true else if @get('content.length') == 0 then true else false
-        false
+    # isEmpty: false
 
     actions:
         previousPage: ->

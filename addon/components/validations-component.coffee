@@ -4,11 +4,14 @@
 ValidationsComponentComponent = Ember.Component.extend
     layout: layout
     keys: {}
+    selectedKeys:[]
     buttonLabel: "Run all queries"
     combinedTables: false
 
     toggleCombinedTables : ->
         @set "combinedTables", !@get "combinedTables"
+        if @get 'combinedTables'
+          @set "buttonLabel", "Back"
         if ((@get 'buttonLabel') == 'Back')
             $('#runQueries').addClass('btn--back')
         else
@@ -27,23 +30,13 @@ ValidationsComponentComponent = Ember.Component.extend
 
     runQueries: ->
         keysArray = Object.keys(@keys)
-        params = ""
+        @set 'selectedKeys', []
         if keysArray.length > 0
-            params = "?keys="
             for key in keysArray
-                if @keys[key]
-                    params=params.concat(escape(key) + ",")
+                if @get('keys')[key]
+                  @get('selectedKeys').push(key)
+        @toggleCombinedTables()
 
-        params = params.substring(0, params.length - 1);
-
-        url = "validations/run" + params
-
-        $.getJSON url, (data) =>
-            @runQueriesResults = data
-            @set "buttonLabel", "Back"
-            @toggleCombinedTables()
-
-        
 
     actions:
         showValidation: (validation) ->

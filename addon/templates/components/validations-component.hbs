@@ -14,7 +14,7 @@
     <div class="validation--right">
         <div class="output">
             {{#if combinedTables}}
-                {{combined-result-tables relationships=runQueriesResults.data.relationships included=runQueriesResults.included}}
+                {{combined-result-tables keys=selectedKeys validations=validationsData platform=platform}}
             {{else}}
                 {{#if validation-to-show}}
                     {{validation-detailed-view validation=validation-to-show}}
