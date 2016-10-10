@@ -1,7 +1,7 @@
 <td>{{add index}}</td>
 {{#if showConcept}}
-    <td> <a href="http://data.europa.eu/esco/occupations/{{item.parameterUuid}}">{{item.parameterUuid}}</a> </td>
-    <td> <a href="http://data.europa.eu/esco/occupations/{{item.parameterUuid}}">{{await concept.preflabel}}</a> </td>
+    <td> <a {{action 'onConceptClick' item.parameterUuid}}>{{item.parameterUuid}}</a> </td>
+    <td> <a {{action 'onConceptClick' item.parameterUuid}}>{{await concept.preflabel}}</a> </td>
 {{else}}
     <td>{{item.parameterUuid}}</td>
 {{/if}}

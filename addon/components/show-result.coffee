@@ -5,6 +5,8 @@ ShowResultComponent = Ember.Component.extend
     layout: layout
 
     actions:
+        onConceptClick: (item) ->
+            @sendAction('onConceptClick', item)
         runQuery: ->
             @toggleProperty('disableButton')
             @toggleProperty('hideTable')

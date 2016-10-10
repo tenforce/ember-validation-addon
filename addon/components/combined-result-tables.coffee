@@ -31,5 +31,8 @@ CombinedResultTablesComponent = Ember.Component.extend
     if @relationships
       for relation in @relationships
         @includedHash[relation.id] = {}
+  actions:
+    onConceptClick: (item) ->
+      @sendAction('onConceptClick', item)
 
 `export default CombinedResultTablesComponent`

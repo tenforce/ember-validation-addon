@@ -4,7 +4,7 @@
     {{result-table-header-empty}}
 {{else}}
     <table>
-        {{result-table-header parameters=parameters type=type}} {{result-table-body parameters=parameters type=type content=content}}
+        {{result-table-header parameters=parameters type=type}} {{result-table-body parameters=parameters type=type content=content onConceptClick=(action 'onConceptClick')}}
     </table>
     {{#if meta.pagination}}
         {{#if meta.pagination.next}}

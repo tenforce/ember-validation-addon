@@ -39,6 +39,8 @@ ValidationsComponentComponent = Ember.Component.extend
 
 
     actions:
+        onConceptClick: (item) ->
+          @sendAction('onConceptClick', item)
         showValidation: (validation) ->
             @set "validation-to-show", validation
             false

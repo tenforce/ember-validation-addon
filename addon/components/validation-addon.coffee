@@ -13,6 +13,9 @@ ValidationAddonComponent = Ember.Component.extend
         data = {}
         @get('store').findAll('validation').then (res) =>
           @set "data", res
+    actions:
+      onConceptClick: (item) ->
+        @sendAction('onConceptClick', item)
 
 
 

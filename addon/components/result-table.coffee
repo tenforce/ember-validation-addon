@@ -41,6 +41,8 @@ ResultTableComponent = Ember.Component.extend
     # isEmpty: false
 
     actions:
+        onConceptClick: (item) ->
+            @sendAction('onConceptClick', item)
         previousPage: ->
             newNumber = @get('number') - 1
             @set 'number', newNumber

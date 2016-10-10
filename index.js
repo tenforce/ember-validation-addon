@@ -2,5 +2,8 @@
 'use strict';
 
 module.exports = {
-  name: 'validation-addon'
+  name: 'validation-addon',
+  isDevelopingAddon: function() {
+    return true;
+  }
 };

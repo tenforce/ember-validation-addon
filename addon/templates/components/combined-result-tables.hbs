@@ -7,7 +7,7 @@
                 </div>
                 <div class="combinedResultTable">
                     {{#each validation.types as |type|}}
-                        {{result-table ruleid=validation.id type=type parameters=validation.parameters}}
+                        {{result-table ruleid=validation.id type=type parameters=validation.parameters onConceptClick=(action 'onConceptClick')}}
                     {{/each}}
                 </div>
             </div>
@@ -18,6 +18,6 @@
 
 {{#each keys as |ruleid|}}
     {{#each rulevalues.types as |type|}}
-        {{result-table ruleid=ruleid type=type parameters=rulevalues.parameters}}
+        {{result-table ruleid=ruleid type=type parameters=rulevalues.parameters onConceptClick=(action 'onConceptClick')}}
     {{/each}}
 {{/each}}

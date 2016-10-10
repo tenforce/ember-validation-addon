@@ -9,6 +9,8 @@ ResultTableBodyRowComponent = Ember.Component.extend
         if @get('type') == 'concept' then true else false
     concept: Ember.computed ->
         @get('store').find('concept', @get 'item.parameterUuid')
-
+    actions:
+      onConceptClick: (item) ->
+        @sendAction('onConceptClick', item)
 
 `export default ResultTableBodyRowComponent`
