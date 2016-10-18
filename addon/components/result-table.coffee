@@ -32,8 +32,12 @@ ResultTableComponent = Ember.Component.extend
             filter: {
                 'rule-id': @get('ruleid'),
                 'parameter-type': @get('type')
+            },
+            randomTimestamp: {
+              'timestamp': Date.now()
             }
             }
+
         @get('store').query('validationResult', params).then (res) =>
             @saveResults(res)
 
