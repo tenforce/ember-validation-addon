@@ -1,10 +1,10 @@
 <td>{{add index}}</td>
-{{#if showConcept}}
-    <td> <a {{action 'onConceptClick' item.parameterUuid}}>{{item.parameterUuid}}</a> </td>
-    <td> <a {{action 'onConceptClick' item.parameterUuid}}>{{await concept.preflabel}}</a> </td>
-{{else}}
+{{!-- {{#if showConcept}} --}}
+    <td> <a {{action 'onConceptClick' item}}>{{item.parameterUuid}}</a> </td>
+    <td> <a {{action 'onConceptClick' item}}>{{await concept.preflabel}}</a> </td>
+{{!-- {{else}}
     <td>{{item.parameterUuid}}</td>
-{{/if}}
+{{/if}} --}}
 
 <td>{{item.parameterType}}</td>
 
