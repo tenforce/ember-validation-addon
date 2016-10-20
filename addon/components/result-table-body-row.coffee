@@ -7,8 +7,14 @@ ResultTableBodyRowComponent = Ember.Component.extend
     store: Ember.inject.service()
     showConcept: Ember.computed ->
         if @get('type') == 'concept' then true else false
+    showMapping: Ember.computed ->
+        if @get('type') == 'mapping' then true else false
     concept: Ember.computed ->
         @get('store').find('concept', @get 'item.parameterUuid')
+
+    mapping: Ember.computed ->
+      @get('store').find('concept', @get 'item.parameterUuid')
+
     actions:
       onConceptClick: (item) ->
         @sendAction('onConceptClick', item)

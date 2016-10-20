@@ -1,9 +1,12 @@
 <tr>
     <th>#</th>
     <th>id</th>
-    {{!-- {{#if showConcept}} --}}
+    {{#if showMapping}}
+        <th>mappingFrom</th>
+        <th>mappingTo</th>
+    {{else}}
         <th>pref label</th>
-    {{!-- {{/if}} --}}
+    {{/if}}
     <th>type</th>
     {{#each parameters as |param|}}
         {{#unless (eql param "uuid") }}

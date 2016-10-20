@@ -7,5 +7,7 @@ ResultTableHeaderComponent = Ember.Component.extend
 
   showConcept: Ember.computed ->
       if @get('type') == 'concept' then true else false
+  showMapping: Ember.computed ->
+      if @get('type') == 'mapping' then true else false
 
 `export default ResultTableHeaderComponent`
