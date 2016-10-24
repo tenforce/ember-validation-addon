@@ -1,27 +1,9 @@
 <div class="validation">
-    <div class="validation--left">
-        <div class="main__nav">
-            <button type="button" id="runQueries" class="btn--master" {{action "runSelectedQueries"}}>{{buttonLabel}}</button>
-        </div>
-        <div class="shadow clearfix"></div>
-        <div class="queries__nav">
-            {{#if combinedTables}}
-            {{else}}
-                {{validation-list-view validations=validationsData manageKeys="manageKeys" showValidation="showValidation" platform=platform selected=validation-to-show}}
-            {{/if}}
-        </div>
-    </div><!-- /.left -->
     <div class="validation--right">
         <div class="output">
-            {{#if combinedTables}}
-                {{combined-result-tables keys=selectedKeys validations=validationsData platform=platform onConceptClick=(action 'onConceptClick')}}
-            {{else}}
-                {{#if validation-to-show}}
-                    {{validation-detailed-view validation=validation-to-show onConceptClick=(action 'onConceptClick')}}
-                {{else}}
-                    <div class="empty-message">Choose a rule!</div>
-                {{/if}}
-            {{/if}}
+          {{#if combinedTables}}
+            {{combined-result-tables keys=selectedKeys validations=validationsData platform=platform onConceptClick=(action 'onConceptClick')}}
+          {{/if}}
         </div>
     </div><!-- /.right -->
 </div><!-- /.validation -->
