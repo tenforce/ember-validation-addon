@@ -1,8 +1,6 @@
 <td>{{add index}}</td>
 {{#if showMapping}}
     <td>{{item.parameterUuid}}</td>
-    <td>todo mappingFrom</td>
-    <td>todo mappingTo</td>
 {{else}}
     <td> <a {{action 'onConceptClick' item}}>{{item.parameterUuid}}</a> </td>
     <td> <a {{action 'onConceptClick' item}}>{{await concept.preflabel}}</a> </td>
