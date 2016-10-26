@@ -5,10 +5,6 @@ ResultTableBodyRowComponent = Ember.Component.extend
     layout: layout
     tagName: 'tr'
     store: Ember.inject.service()
-    showConcept: Ember.computed ->
-        if @get('type') == 'concept' then true else false
-    concept: Ember.computed ->
-        @get('store').find('concept', @get 'item.parameterUuid')
     actions:
       onConceptClick: (item) ->
         @sendAction('onConceptClick', item)

@@ -5,7 +5,4 @@ ResultTableHeaderComponent = Ember.Component.extend
   layout: layout
   tagName: 'thead'
 
-  showConcept: Ember.computed ->
-      if @get('type') == 'concept' then true else false
-
 `export default ResultTableHeaderComponent`

@@ -1,17 +1,18 @@
 <td>{{add index}}</td>
-{{!-- {{#if showConcept}} --}}
-    <td> <a {{action 'onConceptClick' item}}>{{item.parameterUuid}}</a> </td>
-    <td> <a {{action 'onConceptClick' item}}>{{await concept.preflabel}}</a> </td>
-{{!-- {{else}}
-    <td>{{item.parameterUuid}}</td>
-{{/if}} --}}
-
+<td> <a {{action 'onConceptClick' item}}>{{item.parameterUuid}}</a> </td>
 <td>{{item.parameterType}}</td>
 
 {{#each parameters as |param|}}
-    {{#unless (eql param "uuid") }}
-        <td>
-            {{get item (capitalize-parameter-name param)}}
-        </td>
+    {{#unless (eql param "type") }}
+        {{#unless (eql param "uuid") }}
+            <td>
+                {{#if (eql param "preflabel")}}
+                    <a {{action 'onConceptClick' item}}>{{get item (capitalize-parameter-name param)}}</a>
+                {{/if}}
+                {{#unless (eql param "preflabel")}}
+                    {{get item (capitalize-parameter-name param)}}
+                {{/unless}}
+            </td>
+        {{/unless}}
     {{/unless}}
 {{/each}}
