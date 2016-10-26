@@ -19,7 +19,16 @@
                 {{#if validation-to-show}}
                     {{validation-detailed-view validation=validation-to-show onConceptClick=(action 'onConceptClick')}}
                 {{else}}
-                    <div class="empty-message">Choose a rule!</div>
+                    <div class="empty-message">
+                      Choose a rule on the left! <br>
+
+                      If you click on one rule, you can view the details and run the rule. <br>
+
+                      You can select multiple rules with the checkboxes, and run them with the button above the list. If you don't use the checkboxes, all the rules will be run, after pressing the run button. <br>
+
+                      One query takes about 1-3 minutes to run. If you run all of them, you might have to wait 30 minutes or more for the results.
+
+                    </div>
                 {{/if}}
             {{/if}}
         </div>
