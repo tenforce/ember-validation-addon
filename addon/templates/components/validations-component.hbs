@@ -2,7 +2,8 @@
     <div class="validation--right">
         <div class="output">
           {{#if combinedTables}}
-            {{combined-result-tables keys=selectedKeys validations=validationsData platform=platform onConceptClick=(action 'onConceptClick')}}
+            {{combined-result-tables keys=selectedKeys validations=validationsData platform=platform onConceptClick=(action 'onConceptClick')
+            graphid=graphid}}
           {{/if}}
         </div>
     </div><!-- /.right -->

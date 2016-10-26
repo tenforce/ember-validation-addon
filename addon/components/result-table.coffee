@@ -17,7 +17,7 @@ ResultTableComponent = Ember.Component.extend
         @fetchResults()
 
     saveResults: (res) ->
-        @set 'meta', res.get('meta')
+        #@set 'meta', res.get('meta')
         # @set 'content', res
         @get('content').addObjects(res)
         if @get('content.length') == 0 then @set('isEmpty', true) else @set('isEmpty', false)
@@ -30,16 +30,16 @@ ResultTableComponent = Ember.Component.extend
                 size: @get('size')
             },
             filter: {
-                'rule-id': @get('ruleid'),
-                'parameter-type': @get('type')
+                'graph': @get('graphid'),
+                'rule-id': @get('ruleid')
             },
             randomTimestamp: {
-              'timestamp': Date.now()
+                'timestamp': Date.now()
             }
-            }
-
-        @get('store').query('validationResult', params).then (res) =>
-            @saveResults(res)
+        }
+        @get('store').query('validationResultCollection', params).then (res) =>
+            res?.get('firstObject')?.get('validationResults').then (vals) =>
+                @saveResults(vals)
 
     # return true if the included array or hash is empty
     # isEmpty: false
