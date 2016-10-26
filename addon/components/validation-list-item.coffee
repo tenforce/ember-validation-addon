@@ -12,7 +12,7 @@ ValidationListItemComponent = Ember.Component.extend
       @sendAction("showValidation", (@get "validation"))
 
     setChecked: ->
-      @set "checked", !@get "checked"
+      @toggleProperty "checked"
       @sendAction("manageKeys",(@get "checked"), (@get "validation.id"))
 
 `export default ValidationListItemComponent`

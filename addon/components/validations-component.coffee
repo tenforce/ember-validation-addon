@@ -9,7 +9,7 @@ ValidationsComponentComponent = Ember.Component.extend
     combinedTables: false
 
     toggleCombinedTables : ->
-        @set "combinedTables", !@get "combinedTables"
+        @toggleProperty "combinedTables"
         if @get 'combinedTables'
           @set "buttonLabel", "Back"
         if ((@get 'buttonLabel') == 'Back')
