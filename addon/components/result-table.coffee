@@ -11,6 +11,7 @@ ResultTableComponent = Ember.Component.extend
     #
     meta: ""
     content: []
+    isLoading: true
 
     didReceiveAttrs: ->
         @set 'content', []
@@ -21,6 +22,7 @@ ResultTableComponent = Ember.Component.extend
         # @set 'content', res
         @get('content').addObjects(res)
         if @get('content.length') == 0 then @set('isEmpty', true) else @set('isEmpty', false)
+        @set 'isLoading', false
 
 
     fetchResults: ->

@@ -1,14 +1,19 @@
 <div class="table-type-msg">Results for <span>{{type}}</span> type:</div>
-
-{{#if isEmpty}}
-    {{result-table-header-empty}}
+{{#if isLoading}}
+    <div class="loading">
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+    </div>
 {{else}}
-    <table>
-        {{result-table-header parameters=parameters type=type}} {{result-table-body parameters=parameters type=type content=content onConceptClick=(action 'onConceptClick')}}
-    </table>
-    {{#if meta.pagination}}
-        {{#if meta.pagination.next}}
-            <button type="button" class="btn btn--small" {{action "nextPage"}}>Load the next {{size}} results</button>
+    {{#if isEmpty}}
+        {{result-table-header-empty}}
+    {{else}}
+        <table>
+            {{result-table-header parameters=parameters type=type}} {{result-table-body parameters=parameters type=type content=content onConceptClick=(action 'onConceptClick')}}
+        </table>
+        {{#if meta.pagination}}
+            {{#if meta.pagination.next}}
+                <button type="button" class="btn btn--small" {{action "nextPage"}}>Load the next {{size}} results</button>
+            {{/if}}
         {{/if}}
     {{/if}}
 {{/if}}
