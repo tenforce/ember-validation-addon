@@ -1,7 +1,21 @@
-<button class="btn" disabled= {{disableButton}} {{action "runQuery"}}>Show query results</button>
+{{#if hideTable}}
+    {{#if isLoading}}
+        <div class="loading">
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+        </div>
+    {{/if}}
+    {{#unless isLoading}}
+        {{#if error}}
+            The validation failed.
+        {{/if}}
+        {{#unless error}}
+            <button class="btn" disabled= {{disableButton}} {{action "runQuery"}}>Run query</button>
+        {{/unless}}
+    {{/unless}}
 
+{{/if}}
 {{#unless hideTable }}
     {{#each types as |type|}}
-        {{result-table ruleid=ruleid type=type parameters=parameters onConceptClick=(action 'onConceptClick')}}
+        {{result-table ruleid=ruleid type=type parameters=parameters timestamp=timestamp onConceptClick=(action 'onConceptClick')}}
     {{/each}}
 {{/unless}}

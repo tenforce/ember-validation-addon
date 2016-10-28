@@ -19,7 +19,6 @@ ResultTableComponent = Ember.Component.extend
 
     saveResults: (res) ->
         @set 'meta', res.get('meta')
-        # @set 'content', res
         @get('content').addObjects(res)
         if @get('content.length') == 0 then @set('isEmpty', true) else @set('isEmpty', false)
         @set 'isLoading', false
@@ -34,9 +33,10 @@ ResultTableComponent = Ember.Component.extend
             filter: {
                 'rule-id': @get('ruleid'),
                 'parameter-type': @get('type')
+                'timestamp': @get('timestamp')
             },
             randomTimestamp: {
-              'timestamp': Date.now()
+                'timestamp': Date.now()
             }
             }
 
