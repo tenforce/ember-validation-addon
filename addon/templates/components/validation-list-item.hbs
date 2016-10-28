@@ -1,4 +1,4 @@
 <div class="nav__item {{if (eql validation.id selected.id) "nav__item--active"}}">
-    <button type="button" class="btn--checkbox {{if checked "btn--checked"}}" {{action "setChecked"}}></button>
+    {{!-- <button type="button" class="btn--checkbox {{if checked "btn--checked"}}" {{action "setChecked"}}></button> --}}
     <button type="button" class="btn--label" {{action "showValidation"}}>{{validation.name}}</button>
 </div>
