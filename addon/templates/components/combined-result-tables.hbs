@@ -15,7 +15,6 @@
     {{/if}}
 {{/each}}
 
-
 {{#each keys as |ruleid|}}
     {{#each rulevalues.types as |type|}}
         {{result-table ruleid=ruleid type=type parameters=rulevalues.parameters onConceptClick=(action 'onConceptClick')}}

@@ -12,8 +12,8 @@
             <button class="btn" disabled= {{disableButton}} {{action "runQuery"}}>Run query</button>
         {{/unless}}
     {{/unless}}
-
 {{/if}}
+
 {{#unless hideTable }}
     {{#each types as |type|}}
         {{result-table ruleid=ruleid type=type parameters=parameters timestamp=timestamp onConceptClick=(action 'onConceptClick')}}
