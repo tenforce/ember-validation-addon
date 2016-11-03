@@ -1,28 +1,41 @@
 # Validation-addon
 
-This is an ember addon for the validation microservice (`git@git.tenforce.com:mu-semtech/validation.git`), that shows the validation rules and display their results. THIS VERSION OF THE ADDON WORKS WITH [THIS VERSION OF THE BACKEND](https://git.tenforce.com/mu-semtech/validation/commit/279aee8329ed2c79960aa42a9d6425a023219cd8)!
+This is an ember addon for the validation microservice, that shows the validation rules and displays their results. THIS VERSION OF THE ADDON WORKS WITH [THIS VERSION OF THE BACKEND](https://git.tenforce.com/mu-semtech/validation/commit/1229c593f98e24ca6683d990df93cb19d7c5eca1)!
+
+Now if we press the run button, we can have three scenarios:
+
+- run a query
+   - nothing special, runs a query, shows the results. it checks for the results every 30 mins.
+- a query is already running
+   - something is already running, blocking another run
+- this query already ran less than 30 mins ago
+   - this query already ran, you can fetch the results of the previous run or try again in a few minutes.
+   - the timeout is calculated, but not a live counter
 
 ## Usage
 
 Add `{{validation-addon platform="etms" onConceptClick=(action 'onConceptClick')}}` to your hbs file to use the addon.
 
 ### platform
-With this parameter you can define which platform's rules you want to show. These platforms are defined [in the validation microservice's config file under the `show` property.](https://git.tenforce.com/mu-semtech/validation/blob/master/config/rules.json)
+
+With this parameter you can define which platform's rules you want to show. These platforms are defined [in the validation microservice's config file under the `show` property.](https://git.tenforce.com/mu-semtech/validation/blob/master/example/rules.json)
 
 ### onConceptClick
-This action is called when a person clicks on a concept's id or preflabel. It bubbles up the `uuid`. Example to handle the action:
 
-```coffeescript
+This action is called when the user clicks on a row's id or preflabel. It bubbles up the data from the row (in ETMS/Translation the whole concept). Example to handle the action:
+
+```coffee
 `import Ember from 'ember'`
 
 ValidationController = Ember.Controller.extend
   actions:
-      onConceptClick: (item) ->
-        console.log 'validation controller'
-        console.log item
+      @get('store').find('concept', validation.get('parameterUuid')).then (concept) =>
+          if concept.get('isOccupation') then scheme = ENV.areion.occupationScheme
+          # Check if switch to skill is disabled !
+          else if concept.get('isSkill') then unless ENV.areion.disableTaxonomyChange then scheme = ENV.areion.skillScheme
+          if scheme then @transitionToRoute('concepts.show', scheme, validation.get('parameterUuid'))
 
 `export default ValidationController`
-
 ```
 
 ## Installation
