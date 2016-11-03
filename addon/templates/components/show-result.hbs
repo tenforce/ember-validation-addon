@@ -9,7 +9,19 @@
             The validation failed.
         {{/if}}
         {{#unless error}}
-            <button class="btn" disabled= {{disableButton}} {{action "runQuery"}}>Run query</button>
+            {{#if tooEarly}}
+                <div class="block block--description">
+                    The latest run was less than 30 minutes ago. Try again in {{nextRun}} minute(s) or fetch the results of the previous run.
+                </div>
+
+                <button class="btn btn--small" {{action "fetchPrevious"}}>Fetch previous results</button>
+            {{else if busy}}
+                <div class="block block--description">
+                    A query is already running, try again later.
+                </div>
+            {{else}}
+                <button class="btn btn--small" disabled= {{disableButton}} {{action "runQuery"}}>Run query</button>
+            {{/if}}
         {{/unless}}
     {{/unless}}
 {{/if}}
