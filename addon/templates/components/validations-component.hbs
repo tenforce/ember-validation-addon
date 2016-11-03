@@ -20,14 +20,13 @@
                     {{validation-detailed-view validation=validation-to-show onConceptClick=(action 'onConceptClick')}}
                 {{else}}
                     <div class="empty-message">
-                      Choose a rule on the left! <br>
+                      Choose a rule on the left! <br> <br>
 
-                      If you click on one rule, you can view the details and run the rule. <br>
+                      The details of the rule can be viewed by clicking on it. This also gives an option to run it.<br> <br>
 
-                      You can select multiple rules with the checkboxes, and run them with the button above the list. If you don't use the checkboxes, all the rules will be run, after pressing the run button. <br>
-
-                      One query takes about 1-3 minutes to run. If you run all of them, you might have to wait 30 minutes or more for the results.
-
+                      Running a rule can take up to 2-3 minutes. You can either stay on the page and wait for the results to appear or come back later. <br> <br>
+                      A rule can be run once every 30 minutes, otherwise there is a button to fetch the results of the previous run. <br> <br>
+                      If a rule is already running, you cannot start running another one.
                     </div>
                 {{/if}}
             {{/if}}
