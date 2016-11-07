@@ -1,16 +1,17 @@
 # Validation-addon
 
-This is an ember addon for the validation microservice, that shows the validation rules and displays their results. THIS VERSION OF THE ADDON WORKS WITH [THIS VERSION OF THE BACKEND](https://git.tenforce.com/mu-semtech/validation/commit/1229c593f98e24ca6683d990df93cb19d7c5eca1)!
+This is an ember addon for the validation microservice, that shows the validation rules and displays their results. THIS VERSION OF THE ADDON WORKS WITH [THIS VERSION OF THE BACKEND](https://git.tenforce.com/mu-semtech/validation/commit/cee29953d8ad25cf2a9ba6459ba78852f21154c6)!
 
 Now if we press the run button, we can have three scenarios:
 
 - run a query
-   - nothing special, runs a query, shows the results. it checks for the results every 30 mins.
+   - nothing special, runs a query, shows the results
 - a query is already running
    - something is already running, blocking another run
-- this query already ran less than 30 mins ago
-   - this query already ran, you can fetch the results of the previous run or try again in a few minutes.
-   - the timeout is calculated, but not a live counter
+- fetch one of the previous result sets
+   - there is a list of timestamps you can choose from if the query already ran
+   - this list only appears when you have previous runs
+
 
 ## Usage
 

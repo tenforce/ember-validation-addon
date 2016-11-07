@@ -1,3 +1,11 @@
+{{#if nextTimestamp}}
+    <div class="previous-selector">
+        {{#power-select options=previousList selected=nextTimestamp onchange=(action "selectTimestamp") as |time|}}
+            {{time}}
+        {{/power-select}}
+        <button class="btn btn--small" disabled={{timestampChanged}} {{action "fetchPrevious"}}>Fetch previous results</button>
+    </div>
+{{/if}}
 {{#if hideTable}}
     {{#if isLoading}}
         <div class="loading">
@@ -9,13 +17,7 @@
             The validation failed.
         {{/if}}
         {{#unless error}}
-            {{#if tooEarly}}
-                <div class="block block--description">
-                    The latest run was less than 30 minutes ago. Try again in {{nextRun}} minute(s) or fetch the results of the previous run.
-                </div>
-
-                <button class="btn btn--small" {{action "fetchPrevious"}}>Fetch previous results</button>
-            {{else if busy}}
+            {{#if busy}}
                 <div class="block block--description">
                     A query is already running, try again later.
                 </div>
@@ -26,7 +28,9 @@
     {{/unless}}
 {{/if}}
 
+
 {{#unless hideTable }}
+    <h2>Timestamp of the results: {{timestamp}}</h2>
     {{#each types as |type|}}
         {{result-table ruleid=ruleid type=type parameters=parameters timestamp=timestamp onConceptClick=(action 'onConceptClick')}}
     {{/each}}

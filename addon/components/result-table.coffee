@@ -13,9 +13,10 @@ ResultTableComponent = Ember.Component.extend
     content: []
     isLoading: true
 
-    didReceiveAttrs: ->
+    timestampListObserver: Ember.observer 'timestamp', (->
         @set 'content', []
         @fetchResults()
+    ).on('init')
 
     saveResults: (res) ->
         @set 'meta', res.get('meta')

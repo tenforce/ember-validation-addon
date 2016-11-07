@@ -1,7 +1,7 @@
 .btn--small {
     padding: 5px 10px;
     line-height: 1.2;
-    margin: 0 0 10px 0;
+    margin: 0 0 10px;
     font-size: 14px;
     font-size: 1.4rem;
 }
@@ -22,8 +22,8 @@
             .btn--master {
                 display: block;
                 width: 100%;
-                padding: 10px 10px;
-                margin: 0 0 20px 0;
+                padding: 10px;
+                margin: 0 0 20px;
                 color: #000;
                 background-color: #FFF;
                 font-size: 18px;
@@ -47,7 +47,6 @@
                 // -moz-transition: all .3s ease-in-out;
                 // -o-transition: all .3s ease-in-out;
                 // transition: all .3s ease-in-out;
-
                 &:hover {
                     -webkit-box-shadow: 0 0 25px -5px #999;
                     -khtml-box-shadow: 0 0 25px -5px #999;
@@ -97,7 +96,7 @@
                 &:before {
                     content: "\f204";
                     font-family: 'FontAwesome';
-                    padding: 0 5px 00;
+                    padding: 0 5px;
                 }
             }
 
@@ -158,7 +157,7 @@
                 -ms-transform: rotate(-1deg);
                 -o-transform: rotate(-1deg);
                 transform: rotate(-1deg);
-                filter: progid:DXImageTransform.Microsoft.Matrix(M11=0, M12=0, M21=0, M22=0, sizingMethod='auto expand');
+                filter: progid:DXImageTransform.Microsoft.Matrix(M11=0, M12=0, M21=0, M22=0, sizingMethod= 'auto expand');
                 zoom: 1;
             }
 
@@ -186,8 +185,8 @@
                 -o-border-radius: 5px;
                 border-radius: 5px;
 
-                &:hover,
-                &.nav__item--active {
+                &.nav__item--active,
+                &:hover {
                     background-color: #FFF;
                     -webkit-box-shadow: 0 0 15px -5px #999;
                     -khtml-box-shadow: 0 0 15px -5px #999;
@@ -212,10 +211,11 @@
                     left: 0;
                     top: 0;
                     margin: 0;
-                    padding: 11px 10px 10px 10px;
+                    padding: 11px 10px 10px;
                     font-size: 16px;
                     font-size: 1.6rem;
                 }
+
                 .btn--label {
                     border-bottom: 1px dashed transparent;
                     // margin: 0 0 0 20px;
@@ -270,7 +270,7 @@
             }
 
             .result-table {
-                margin: 0 0 35px 0;
+                margin: 0 0 35px;
 
                 .combinedResultDescription {
                     margin: 15px 0;
@@ -309,8 +309,8 @@
                     }
                 }
 
-                th,
-                td {
+                td,
+                th {
                     padding: 7px 10px;
                     text-align: left;
                     vertical-align: top;
@@ -385,7 +385,7 @@
 
                         h2 {
                             font-weight: 100;
-                            padding: 0 0 3px 0;
+                            padding: 0 0 3px;
                             color: #808080;
                             font-size: 15px;
                             font-size: 1.5rem;
@@ -403,11 +403,35 @@
                     .btn[disabled] {
                         display: none;
                     }
+
                     .tableTypeMessage {
                         margin-top: 25px;
                         color: #333;
                         font-weight: 100;
                     }
+
+                    .previous-selector {
+                        margin: 0 0 20px;
+                        .btn[disabled] {
+                            display: inline-block;
+                            opacity: 0.5;
+                            cursor: not-allowed;
+                        }
+
+                        .ember-power-select {
+                            display: inline-block;
+                            margin-right: 1%;
+                        }
+                    }
+
+                    h2 {
+                        font-weight: 100;
+                        padding: 0 0 3px;
+                        color: #808080;
+                        font-size: 15px;
+                        font-size: 1.5rem;
+                    }
+
                     table {
                         margin: 25px 0;
                     }

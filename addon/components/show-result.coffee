@@ -5,10 +5,32 @@ ShowResultComponent = Ember.Component.extend
     layout: layout
     isLoading: false
     store: Ember.inject.service()
-    calculateMinutesLeft: (seconds) ->
-      if seconds <= 60
-        return 1
-      return Math.round(seconds / 60)
+
+    timestampListObserver: Ember.observer 'ruleid','hideTable', (->
+        @fetchPreviousTimestamps()
+    ).on('init')
+
+    timestampChanged: Ember.computed 'timestamp', 'nextTimestamp', ->
+      if @get('timestamp') == @get('nextTimestamp') then true else false
+
+    fetchPreviousTimestamps: ->
+        params = {
+            filter: {
+                'rule-id': @get('ruleid')
+            },
+            randomTimestamp: {
+                'timestamp': Date.now()
+            }
+            }
+        @get('store').query('validationResultCollection', params).then (collections) =>
+            timestamps = []
+            collections.forEach (collection) ->
+                timestamps.push(collection.get('timestamp').replace('T', ' ').replace('Z',''))
+            timestamps.sort()
+            timestamps.reverse()
+            @set 'previousList', timestamps
+            if timestamps.length > 0
+              @set 'nextTimestamp', timestamps[0]
 
     startValidation: ->
         @set 'isLoading', true
@@ -18,18 +40,12 @@ ShowResultComponent = Ember.Component.extend
             url: validUrl
             data: {}
             success: (data) =>
-                # debugger
-                if data.meta.status.indexOf('The latest run was less than 30 minutes ago.') > -1
-                  @set 'timestamp', data.meta.attributes.latest_run
-                  @set 'nextRun', @calculateMinutesLeft(data.meta.attributes.run_again)
-                  @set 'tooEarly', true
-                  @set 'isLoading', false
-                else if data.meta.status.indexOf('A query is already running, try again later.') > -1
-                  @set 'busy', true
-                  @set 'isLoading', false
+                if data.meta.status.indexOf('A query is already running, try again later.') > -1
+                    @set 'busy', true
+                    @set 'isLoading', false
                 else
-                  @set 'timestampToCheck', data.meta.attributes.timestamp
-                  @checkForResults()
+                    @set 'timestampToCheck', data.meta.attributes.timestamp
+                    @checkForResults()
             error: (error) =>
                 console.log "Call to validation service failed."
                 console.log (error)
@@ -50,6 +66,7 @@ ShowResultComponent = Ember.Component.extend
                 else
                     @toggleProperty('disableButton')
                     @set 'timestamp', data.meta.attributes.timestamp
+                    @set 'nextTimestamp', data.meta.attributes.timestamp
                     @set 'isLoading', false
                     @toggleProperty('hideTable')
             error: (error) =>
@@ -66,8 +83,14 @@ ShowResultComponent = Ember.Component.extend
             @startValidation()
             false
 
+        selectTimestamp: (item) ->
+            @set 'nextTimestamp', item
+            false
+
         fetchPrevious: ->
-            @toggleProperty('hideTable')
+            @set 'timestamp', @get('nextTimestamp')
+            if @get 'hideTable'
+              @toggleProperty('hideTable')
             false
 
 `export default ShowResultComponent`
