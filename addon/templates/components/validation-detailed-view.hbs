@@ -4,7 +4,7 @@
             {{validation-details description=validation.description query=validation.query types=validation.types parameters=validation.parameters showDetails=false}}
         </div>
         <div class="validation__table">
-            {{show-result ruleid=validation.id hideTable=true disableButton=false isLoading=false nextTimestamp="" busy=false types=validation.types parameters=validation.parameters onConceptClick=(action 'onConceptClick')}}
+            {{show-result ruleid=validation.id hideTable=true disableButton=false isLoading=false timestamp="" nextTimestamp="" busy=false types=validation.types parameters=validation.parameters onConceptClick=(action 'onConceptClick')}}
         </div>
     {{else}}
         <div class="empty-message">Choose a rule!</div>
