@@ -4,6 +4,7 @@
 ShowResultComponent = Ember.Component.extend
     layout: layout
     isLoading: false
+    validationLoaded: false
     store: Ember.inject.service()
 
     timestampListObserver: Ember.observer 'ruleid','hideTable', (->
@@ -51,29 +52,31 @@ ShowResultComponent = Ember.Component.extend
                 console.log (error)
 
     checkForResults: ->
-        timestamp = @get 'timestampToCheck'
-        params = timestamp.split(' ')
-        validUrl = "/validation/results?keys=" + @get('ruleid') + "&date=" + params[0] + "&time=" + params[1]
-        Ember.$.ajax
-            type: "GET"
-            url: validUrl
-            success: (data) =>
-                if data.meta.status != 'finished'
-                    setTimeout(
-                        =>
-                            @checkForResults()
-                        , 1000*60)
-                else
-                    @toggleProperty('disableButton')
-                    @set 'timestamp', data.meta.attributes.timestamp
-                    @set 'nextTimestamp', data.meta.attributes.timestamp
-                    @set 'isLoading', false
-                    @toggleProperty('hideTable')
-            error: (error) =>
-                @set 'error', true
-                @set 'isLoading', false
-                console.log "Call to validation service failed."
-                console.log (error)
+        if @get("validationLoaded") == false
+          timestamp = @get 'timestampToCheck'
+          params = timestamp.split(' ')
+          validUrl = "/validation/results?keys=" + @get('ruleid') + "&date=" + params[0] + "&time=" + params[1]
+          Ember.$.ajax
+              type: "GET"
+              url: validUrl
+              success: (data) =>
+                  if data.meta.status != 'finished'
+                      setTimeout(
+                          =>
+                              @checkForResults()
+                          , 1000*10)
+                  else
+                      @set 'validationLoaded', true
+                      @toggleProperty('disableButton')
+                      @set 'timestamp', data.meta.attributes.timestamp
+                      @set 'nextTimestamp', data.meta.attributes.timestamp
+                      @set 'isLoading', false
+                      @toggleProperty('hideTable')
+              error: (error) =>
+                  @set 'error', true
+                  @set 'isLoading', false
+                  console.log "Call to validation service failed."
+                  console.log (error)
 
     actions:
         onConceptClick: (item) ->
@@ -88,6 +91,7 @@ ShowResultComponent = Ember.Component.extend
             false
 
         fetchPrevious: ->
+            @set 'validationLoaded', true
             @set 'timestamp', @get('nextTimestamp')
             if @get 'hideTable'
               @toggleProperty('hideTable')
