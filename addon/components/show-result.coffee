@@ -35,6 +35,7 @@ ShowResultComponent = Ember.Component.extend
 
     startValidation: ->
         @set 'isLoading', true
+        @set 'validationLoaded', false
         validUrl = "/validation/" + @get('ruleid') + "/run"
         Ember.$.ajax
             type: "POST"
