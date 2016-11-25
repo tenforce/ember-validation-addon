@@ -1,7 +1,7 @@
 {{#if nextTimestamp}}
     <div class="previous-selector">
         {{#power-select options=previousList selected=nextTimestamp onchange=(action "selectTimestamp") as |time|}}
-            {{time}}
+            {{time}} (GMT)
         {{/power-select}}
         <button class="btn btn--small" disabled={{timestampChanged}} {{action "fetchPrevious"}}>Fetch previous results</button>
     </div>
@@ -30,7 +30,7 @@
 
 
 {{#unless hideTable }}
-    <h2>Timestamp of the results: {{timestamp}}</h2>
+    <h2>Timestamp of the results: {{timestamp}} (GMT)</h2>
     {{#each types as |type|}}
         {{result-table ruleid=ruleid type=type parameters=parameters timestamp=timestamp onConceptClick=(action 'onConceptClick')}}
     {{/each}}
