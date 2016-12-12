@@ -26,8 +26,6 @@ ResultTableComponent = Ember.Component.extend
         @set 'meta', res.get('meta')
         @get('content').addObjects(res)
         if @get('content.length') == 0 then @set('isEmpty', true) else @set('isEmpty', false)
-        @set 'isLoading', false
-
 
     fetchResults: ->
         params = {
@@ -50,6 +48,7 @@ ResultTableComponent = Ember.Component.extend
 
         @get('store').query('validationResult', params).then (res) =>
             @saveResults(res)
+            @set 'isLoading', false
 
     actions:
         onConceptClick: (item) ->

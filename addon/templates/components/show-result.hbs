@@ -38,6 +38,6 @@
 {{#unless hideTable }}
     <h2>Timestamp of the results: {{timestamp}} (GMT)</h2>
     {{#each types as |type|}}
-        {{result-table ruleid=ruleid type=type parameters=parameters timestamp=timestamp onConceptClick=(action 'onConceptClick') selectedLanguage=language}}
+        {{result-table ruleid=ruleid type=type parameters=parameters timestamp=timestamp onConceptClick=(action 'onConceptClick') selectedLanguage=language isLoading=true}}
     {{/each}}
 {{/unless}}
