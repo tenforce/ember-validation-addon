@@ -1,9 +1,16 @@
 {{#if nextTimestamp}}
     <div class="previous-selector">
+        {{#if languageOptions}}
+            {{#if defaultLanguage}}
+                {{#power-select options=languageOptions selected=nextLanguage onchange=(action "selectLanguage") as |language|}}
+                    {{language.title}}
+                {{/power-select}}
+            {{/if}}
+        {{/if}}
         {{#power-select options=previousList selected=nextTimestamp onchange=(action "selectTimestamp") as |time|}}
             {{time}} (GMT)
         {{/power-select}}
-        <button class="btn btn--small" disabled={{timestampChanged}} {{action "fetchPrevious"}}>Fetch previous results</button>
+        <button class="btn btn--small" {{action "fetchPrevious"}}>Fetch previous results</button>
     </div>
 {{/if}}
 {{#if hideTable}}
@@ -28,10 +35,9 @@
     {{/unless}}
 {{/if}}
 
-
 {{#unless hideTable }}
     <h2>Timestamp of the results: {{timestamp}} (GMT)</h2>
     {{#each types as |type|}}
-        {{result-table ruleid=ruleid type=type parameters=parameters timestamp=timestamp onConceptClick=(action 'onConceptClick')}}
+        {{result-table ruleid=ruleid type=type parameters=parameters timestamp=timestamp onConceptClick=(action 'onConceptClick') selectedLanguage=language}}
     {{/each}}
 {{/unless}}

@@ -6,17 +6,21 @@ ResultTableComponent = Ember.Component.extend
     store: Ember.inject.service()
     number: 0
     size: 40
-    # params: Ember.computed 'number', ->
-    #     console.log 'params'
-    #
     meta: ""
     content: []
     isLoading: true
 
     timestampListObserver: Ember.observer 'timestamp', (->
-        @set 'content', []
-        @fetchResults()
+        @resetTable()
     ).on('init')
+
+    selectedLanguageListObserver: Ember.observer 'selectedLanguage', (->
+        @resetTable()
+    ).on('selectedLanguage')
+
+    resetTable: ->
+      @set 'content', []
+      @fetchResults()
 
     saveResults: (res) ->
         @set 'meta', res.get('meta')
@@ -41,11 +45,11 @@ ResultTableComponent = Ember.Component.extend
             }
             }
 
+        if @get 'selectedLanguage'
+          params['filter']['parameter-language'] = @get 'selectedLanguage.id'
+
         @get('store').query('validationResult', params).then (res) =>
             @saveResults(res)
-
-    # return true if the included array or hash is empty
-    # isEmpty: false
 
     actions:
         onConceptClick: (item) ->

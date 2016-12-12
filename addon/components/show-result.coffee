@@ -5,14 +5,19 @@ ShowResultComponent = Ember.Component.extend
     layout: layout
     isLoading: false
     validationLoaded: false
+    error: false
     store: Ember.inject.service()
 
     timestampListObserver: Ember.observer 'ruleid','hideTable', (->
         @fetchPreviousTimestamps()
     ).on('init')
 
-    timestampChanged: Ember.computed 'timestamp', 'nextTimestamp', ->
-      if @get('timestamp') == @get('nextTimestamp') then true else false
+    languageListObserver: Ember.observer 'ruleid', (->
+        @set 'nextLanguage', @get 'defaultLanguage'
+    ).on('ruleid')
+
+    nextLanguage: Ember.computed ->
+        @get 'defaultLanguage'
 
     fetchPreviousTimestamps: ->
         params = {
@@ -31,7 +36,7 @@ ShowResultComponent = Ember.Component.extend
             timestamps.reverse()
             @set 'previousList', timestamps
             if timestamps.length > 0
-              @set 'nextTimestamp', timestamps[0]
+                @set 'nextTimestamp', timestamps[0]
 
     startValidation: ->
         @set 'isLoading', true
@@ -54,30 +59,30 @@ ShowResultComponent = Ember.Component.extend
 
     checkForResults: ->
         if @get("validationLoaded") == false
-          timestamp = @get 'timestampToCheck'
-          params = timestamp.split(' ')
-          validUrl = "/validation/results?keys=" + @get('ruleid') + "&date=" + params[0] + "&time=" + params[1]
-          Ember.$.ajax
-              type: "GET"
-              url: validUrl
-              success: (data) =>
-                  if data.meta.status != 'finished'
-                      setTimeout(
-                          =>
-                              @checkForResults()
-                          , 1000*10)
-                  else
-                      @set 'validationLoaded', true
-                      @toggleProperty('disableButton')
-                      @set 'timestamp', data.meta.attributes.timestamp
-                      @set 'nextTimestamp', data.meta.attributes.timestamp
-                      @set 'isLoading', false
-                      @toggleProperty('hideTable')
-              error: (error) =>
-                  @set 'error', true
-                  @set 'isLoading', false
-                  console.log "Call to validation service failed."
-                  console.log (error)
+            timestamp = @get 'timestampToCheck'
+            params = timestamp.split(' ')
+            validUrl = "/validation/results?keys=" + @get('ruleid') + "&date=" + params[0] + "&time=" + params[1]
+            Ember.$.ajax
+                type: "GET"
+                url: validUrl
+                success: (data) =>
+                    if data.meta.status != 'finished'
+                        setTimeout(
+                            =>
+                                @checkForResults()
+                            , 1000*10)
+                    else
+                        @set 'validationLoaded', true
+                        @toggleProperty('disableButton')
+                        @set 'timestamp', data.meta.attributes.timestamp
+                        @set 'nextTimestamp', data.meta.attributes.timestamp
+                        @set 'isLoading', false
+                        @toggleProperty('hideTable')
+                error: (error) =>
+                    @set 'error', true
+                    @set 'isLoading', false
+                    console.log "Call to validation service failed."
+                    console.log (error)
 
     actions:
         onConceptClick: (item) ->
@@ -90,12 +95,16 @@ ShowResultComponent = Ember.Component.extend
         selectTimestamp: (item) ->
             @set 'nextTimestamp', item
             false
+        selectLanguage: (item) ->
+            @set 'nextLanguage', item
+            false
 
         fetchPrevious: ->
             @set 'validationLoaded', true
             @set 'timestamp', @get('nextTimestamp')
+            @set 'language', @get('nextLanguage')
             if @get 'hideTable'
-              @toggleProperty('hideTable')
+                @toggleProperty('hideTable')
             false
 
 `export default ShowResultComponent`

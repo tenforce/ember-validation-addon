@@ -5,21 +5,43 @@ This is an ember addon for the validation microservice, that shows the validatio
 Now if we press the run button, we can have three scenarios:
 
 - run a query
-   - nothing special, runs a query, shows the results
-- a query is already running
-   - something is already running, blocking another run
-- fetch one of the previous result sets
-   - there is a list of timestamps you can choose from if the query already ran
-   - this list only appears when you have previous runs
 
+  - nothing special, runs a query, shows the results
+
+- a query is already running
+
+  - something is already running, blocking another run
+
+- fetch one of the previous result sets
+
+  - there is a list of timestamps you can choose from if the query already ran
+  - this list only appears when you have previous runs
 
 ## Usage
 
-Add `{{validation-addon platform="etms" onConceptClick=(action 'onConceptClick')}}` to your hbs file to use the addon.
+Add `{{validation-addon platform="translation" onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage}}` to your hbs file to use the addon.
 
 ### platform
 
 With this parameter you can define which platform's rules you want to show. These platforms are defined [in the validation microservice's config file under the `show` property.](https://git.tenforce.com/mu-semtech/validation/blob/master/example/rules.json)
+
+### languageOptions and defaultLanguage
+
+If you want to add a language filtering option, use the following format:
+
+```
+languages = [
+  {title: "Bulgarian", id: "bg"}
+  {title: "Croatian", id: "hr"}
+  {title: "Czech", id: "cs"}
+]
+```
+
+Make sure to add a default language too:
+```
+{title: "Bulgarian", id: "bg"}
+```
+
 
 ### onConceptClick
 
