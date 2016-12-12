@@ -19,8 +19,8 @@ ResultTableComponent = Ember.Component.extend
     ).on('selectedLanguage')
 
     resetTable: ->
-      @set 'content', []
-      @fetchResults()
+        @set 'content', []
+        @fetchResults()
 
     saveResults: (res) ->
         @set 'meta', res.get('meta')
@@ -44,9 +44,9 @@ ResultTableComponent = Ember.Component.extend
                 'timestamp': Date.now()
             }
             }
-
         if @get 'selectedLanguage'
-          params['filter']['parameter-language'] = @get 'selectedLanguage.id'
+            unless @get('selectedLanguage.id') is 'all-languages'
+                params['filter']['parameter-language'] = @get 'selectedLanguage.id'
 
         @get('store').query('validationResult', params).then (res) =>
             @saveResults(res)
