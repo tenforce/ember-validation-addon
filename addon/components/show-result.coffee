@@ -89,6 +89,7 @@ ShowResultComponent = Ember.Component.extend
             @sendAction('onConceptClick', item)
 
         runQuery: ->
+            @set 'language', @get('nextLanguage')
             @startValidation()
             false
 
