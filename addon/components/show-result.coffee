@@ -70,7 +70,7 @@ ShowResultComponent = Ember.Component.extend
                         setTimeout(
                             =>
                                 @checkForResults()
-                            , 1000*10)
+                            , 1000*30)
                     else
                         @set 'validationLoaded', true
                         @toggleProperty('disableButton')
