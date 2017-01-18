@@ -30,16 +30,12 @@
                 font-weight: 400;
                 cursor: pointer;
                 -webkit-border-radius: 3px;
-                -khtml-border-radius: 3px;
                 -moz-border-radius: 3px;
                 -ms-border-radius: 3px;
-                -o-border-radius: 3px;
                 border-radius: 3px;
                 -webkit-box-shadow: 0 0 25px -5px #999;
-                -khtml-box-shadow: 0 0 25px -5px #999;
                 -moz-box-shadow: 0 0 25px -5px #999;
                 -ms-box-shadow: 0 0 25px -5px #999;
-                -o-box-shadow: 0 0 25px -5px #999;
                 box-shadow: 0 0 25px -5px #999;
                 // -webkit-transition: all .3s ease-in-out;
                 // -moz-transition: all .3s ease-in-out;
@@ -47,10 +43,8 @@
                 // transition: all .3s ease-in-out;
                 &:hover {
                     -webkit-box-shadow: 0 0 25px -5px #999;
-                    -khtml-box-shadow: 0 0 25px -5px #999;
                     -moz-box-shadow: 0 0 25px -5px #999;
                     -ms-box-shadow: 0 0 25px -5px #999;
-                    -o-box-shadow: 0 0 25px -5px #999;
                     box-shadow: 0 0 15px -5px #999;
 
                     &:after {
@@ -113,10 +107,8 @@
                     color: #FFF;
                     padding: 4px 10px;
                     -webkit-border-radius: 3px;
-                    -khtml-border-radius: 3px;
                     -moz-border-radius: 3px;
                     -ms-border-radius: 3px;
-                    -o-border-radius: 3px;
                     border-radius: 3px;
                     line-height: 1.2;
                     margin: 0 0 0 5px;
@@ -141,16 +133,12 @@
                 left: 0;
                 background: #777;
                 -webkit-box-shadow: 0 20px 17px 3px #777;
-                -khtml-box-shadow: 0 20px 17px 3px #777;
                 -moz-box-shadow: 0 20px 17px 3px #777;
                 -ms-box-shadow: 0 20px 17px 3px #777;
-                -o-box-shadow: 0 20px 17px 3px #777;
                 box-shadow: 0 20px 17px 3px #777;
                 -webkit-transform: rotate(-1deg);
-                -khtml-transform: rotate(-1deg);
                 -moz-transform: rotate(-1deg);
                 -ms-transform: rotate(-1deg);
-                -o-transform: rotate(-1deg);
                 transform: rotate(-1deg);
                 filter: progid:DXImageTransform.Microsoft.Matrix(M11=0, M12=0, M21=0, M22=0, sizingMethod= 'auto expand');
                 zoom: 1;
@@ -174,20 +162,16 @@
                 display: inline-block;
                 padding: 10px;
                 -webkit-border-radius: 5px;
-                -khtml-border-radius: 5px;
                 -moz-border-radius: 5px;
                 -ms-border-radius: 5px;
-                -o-border-radius: 5px;
                 border-radius: 5px;
 
                 &.nav__item--active,
                 &:hover {
                     background-color: #FFF;
                     -webkit-box-shadow: 0 0 15px -5px #999;
-                    -khtml-box-shadow: 0 0 15px -5px #999;
                     -moz-box-shadow: 0 0 15px -5px #999;
                     -ms-box-shadow: 0 0 15px -5px #999;
-                    -o-box-shadow: 0 0 15px -5px #999;
                     box-shadow: 0 0 15px -5px #999;
 
                     .btn--checkbox {
@@ -195,7 +179,6 @@
                     }
 
                     .btn--label {
-                        border-bottom: 1px dashed;
                         // margin: 0 0 0 35px;
                         color: #000;
                     }
@@ -211,7 +194,6 @@
                 }
 
                 .btn--label {
-                    border-bottom: 1px dashed transparent;
                     // margin: 0 0 0 20px;
                     font-size: 16px;
                     text-align: left;
@@ -251,10 +233,8 @@
             overflow: hidden;
             padding: 25px;
             -webkit-box-shadow: 0 0 75px 10px #CCC;
-            -khtml-box-shadow: 0 0 75px 10px #CCC;
             -moz-box-shadow: 0 0 75px 10px #CCC;
             -ms-box-shadow: 0 0 75px 10px #CCC;
-            -o-box-shadow: 0 0 75px 10px #CCC;
             box-shadow: 0 0 75px 10px #CCC;
 
             .empty-message {
@@ -341,10 +321,8 @@
                                     display: inline-block;
                                     border: 1px solid transparent;
                                     -webkit-border-radius: 3px;
-                                    -khtml-border-radius: 3px;
                                     -moz-border-radius: 3px;
                                     -ms-border-radius: 3px;
-                                    -o-border-radius: 3px;
                                     border-radius: 3px;
                                     margin: 0 1px;
                                     line-height: 1;
