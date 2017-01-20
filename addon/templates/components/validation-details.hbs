@@ -3,13 +3,12 @@
     <div>{{description}}</div>
 </div>
 
-{{#unless showDetails}}
-    <button class="btn btn--small" {{action "showQueryDetails"}}>Show query details</button>
-{{/unless}}
-{{#if showDetails}}
-    {{!-- <div class="block block--query">
-        <h2>Query</h2>
-        <div>{{query}}</div>
+{{!-- {{#unless showDetails}}
+<button class="btn btn--small" {{action "showQueryDetails"}}>Show query details</button>
+{{/unless}} {{!-- {{#if showDetails}}
+--}} {{!-- <div class="block block--query">
+    <h2>Query</h2>
+    <div>{{query}}</div>
     </div> --}}
     {{#unless typesArrayEmpty}}
         <div class="block block--types">
@@ -23,4 +22,5 @@
             <div>{{parameters}}</div>
         </div>
     {{/unless}}
-{{/if}}
+    {{!-- {{/if}}
+    --}}
