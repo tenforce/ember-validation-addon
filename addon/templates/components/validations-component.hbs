@@ -1,40 +1,20 @@
-<div class="validation">
-    <div class="validation--left">
-        {{#power-select options=validationsData selected=validation-to-show onchange=(action "showValidation") as |rule|}}
-          {{rule.name}}
-        {{/power-select}}
-        {{!-- <div class="main__nav">
-            <button type="button" id="runQueries" class="btn--master" {{action "runSelectedQueries"}}
-        >{{buttonLabel}}</button>
+<div class="section intro">
+    <div class="section__title">
+        Choose a rule on the bottom!
     </div>
-    <div class="shadow clearfix"></div> --}}
-    {{!-- <div class="queries__nav">
-        {{#if combinedTables}}
-        {{else}}
-            {{validation-list-view validations=validationsData manageKeys="manageKeys" showValidation="showValidation" platform=platform selected=validation-to-show}}
-        {{/if}}
-    </div> --}}
-
-</div>
-<!-- /.left -->
-<div class="validation--right">
-    <div class="output">
-        {{#if combinedTables}}
-            {{combined-result-tables keys=selectedKeys validations=validationsData platform=platform onConceptClick=(action 'onConceptClick')}}
-        {{else}}
-            {{#if validation-to-show}}
-                {{validation-detailed-view validation=validation-to-show onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage}}
-            {{else}}
-                <div class="empty-message">
-                    Choose a rule from the dropdown menu! <br> <br> The details of the rule can be viewed by clicking on it. This also gives an option to run it.<br><br> If a rule is already running, you cannot start running another one.<br> <br> Running a rule
-                    can take up to 8-10 minutes. You can either stay on the page and wait for the results to appear or come back later. If you come back later and the rule is finished, you can find it in the timestamp list.<br> <br> If a rule already ran
-                    before, you will see a list of timestamps you can choose from to download the previous results. <br> <br> If you just started running a rule, it will appear in this list when the execution finished.
-
-                </div>
-            {{/if}}
-        {{/if}}
+    <div class="section__body">
+        The details of the rule can be viewed by clicking on it. This also gives an option to run it.<br><br> If a rule is already running, you cannot start running another one.<br> <br> Running a rule can take up to 8-10 minutes. You can either stay
+        on the page and wait for the results to appear or come back later. If you come back later and the rule is finished, you can find it in the timestamp list.<br> <br> If a rule already ran before, you will see a list of timestamps you can choose
+        from to download the previous results. <br> <br> If you just started running a rule, it will appear in this list when the execution finished.
     </div>
 </div>
-<!-- /.right -->
+<div class="selector">
+    {{#power-select options=validationsData selected=validation-to-show onchange=(action "showValidation") as |rule|}}
+        {{rule.name}}
+    {{/power-select}}
 </div>
-<!-- /.validation -->
+<div class="body">
+    {{#if validation-to-show}}
+        {{validation-detailed-view validation=validation-to-show onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage}}
+    {{/if}}
+</div>

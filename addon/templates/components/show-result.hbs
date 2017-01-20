@@ -21,7 +21,7 @@
     {{/if}}
     {{#unless isLoading}}
         {{#if error}}
-            The validation failed.
+            <div class="msg msg--empty">The validation failed.</div>
         {{/if}}
         {{#unless error}}
             {{#if busy}}

@@ -1,12 +1,8 @@
-<div class="validation__content">
-    {{#if validation}}
-        <div class="validation__detail">
-            {{validation-details description=validation.description query=validation.query types=validation.types parameters=validation.parameters showDetails=false}}
-        </div>
-        <div class="validation__table">
-            {{show-result ruleid=validation.id hideTable=true disableButton=false isLoading=false timestamp="" nextTimestamp="" busy=false types=validation.types parameters=validation.parameters error=false onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage}}
-        </div>
-    {{else}}
-        <div class="empty-message">Choose a rule!</div>
-    {{/if}}
-</div>
+{{#if validation}}
+    {{validation-details description=validation.description query=validation.query types=validation.types parameters=validation.parameters showDetails=false}}
+
+    {{show-result ruleid=validation.id hideTable=true disableButton=false isLoading=false timestamp=""
+    nextTimestamp="" busy=false types=validation.types parameters=validation.parameters error=false onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage}}
+{{else}}
+    <div class="empty-message">Choose a rule!</div>
+{{/if}}
