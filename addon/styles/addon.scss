@@ -314,6 +314,8 @@
                     padding: 7px 10px;
                     text-align: left;
                     vertical-align: top;
+                    max-width: 200px;
+                    word-wrap: break-word;
 
                     a {
                         text-decoration: underline;
