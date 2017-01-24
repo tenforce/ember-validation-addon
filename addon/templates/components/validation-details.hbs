@@ -1,12 +1,10 @@
-<div class="section">
-    <div class="section__title">Description</div>
-    <div class="section__body">{{description}}</div>
-    {{#unless typesArrayEmpty}}
-        <div class="section__title">Type</div>
-        <div class="section__body">{{types}}</div>
-    {{/unless}}
-    {{#unless parameterArrayEmpty}}
-        <div class="section__title">Parameters</div>
-        <div class="section__body">{{parameters}}</div>
-    {{/unless}}
-</div>
+<div class="section__title">Description</div>
+<div class="section__body">{{description}}</div>
+{{#unless typesArrayEmpty}}
+    <div class="section__title">Type</div>
+    <div class="section__body">{{types}}</div>
+{{/unless}}
+{{#unless parameterArrayEmpty}}
+    <div class="section__title">Parameters</div>
+    <div class="section__body">{{parameters}}</div>
+{{/unless}}
