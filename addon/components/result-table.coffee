@@ -10,6 +10,11 @@ ResultTableComponent = Ember.Component.extend
     content: []
     isLoading: true
 
+    sortElement: Ember.computed 'parameters', ->
+      if @get('parameters').contains('literalForm')
+        return 'parameter-literal-form'
+      return 'parameter-preflabel'
+
     timestampListObserver: Ember.observer 'timestamp', (->
         @resetTable()
     ).on('init')
@@ -40,7 +45,8 @@ ResultTableComponent = Ember.Component.extend
             },
             randomTimestamp: {
                 'timestamp': Date.now()
-            }
+            },
+            sort: @get('sortElement')
             }
         if @get 'selectedLanguage'
             unless @get('selectedLanguage.id') is 'all-languages'
