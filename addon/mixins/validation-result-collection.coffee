@@ -1,7 +1,8 @@
+`import Ember from 'ember'`
 `import DS from 'ember-data';`
 `import HasManyQuery from 'ember-data-has-many-query'`
 
-Validation =  DS.Model.extend
+ValidationResultCollectionMixin = Ember.Mixin.create
   status: DS.attr('string')
   timestamp: DS.attr('string')
   ruleId: DS.attr('string')
@@ -9,4 +10,4 @@ Validation =  DS.Model.extend
   types: DS.attr('string-set')
   validationResults: DS.hasMany('validation-result', inverse: null)
 
-`export default Validation`
+`export default ValidationResultCollectionMixin`

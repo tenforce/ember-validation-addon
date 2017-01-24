@@ -42,6 +42,19 @@ Make sure to add a default language too:
 {title: "Bulgarian", id: "bg"}
 ```
 
+### Models
+
+To be able to use this addon, you have to use the model mixins. Generate your own ember model, and use the mixin like this:
+
+```coffee
+`import DS from 'ember-data'`
+`import ValidationMixin from 'validation-addon/mixins/validation'`
+
+Validation = DS.Model.extend ValidationMixin
+
+`export default Validation`
+```
+
 
 ### onConceptClick
 
