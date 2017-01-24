@@ -1,6 +1,6 @@
 {
   "name": "validation-addon",
-  "version": "2.2.2",
+  "version": "2.2.2-mixin",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
