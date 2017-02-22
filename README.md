@@ -1,6 +1,6 @@
 # Validation-addon
 
-This is an ember addon for the validation microservice, that shows the validation rules and displays their results. THIS VERSION OF THE ADDON WORKS WITH [THIS VERSION OF THE BACKEND](https://git.tenforce.com/mu-semtech/validation/commit/cee29953d8ad25cf2a9ba6459ba78852f21154c6)!
+This is an ember addon for the validation microservice, that shows the validation rules and displays their results. THIS VERSION OF THE ADDON WORKS WITH [THIS VERSION OF THE BACKEND](https://git.tenforce.com/mu-semtech/validation/commit/603c4c1ab388a2ff4416a9eb4b0d016715329086)!
 
 Now if we press the run button, we can have three scenarios:
 
