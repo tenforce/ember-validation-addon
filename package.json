@@ -1,6 +1,6 @@
 {
   "name": "validation-addon",
-  "version": "2.2.3-sort",
+  "version": "2.3.0-queryparams",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
