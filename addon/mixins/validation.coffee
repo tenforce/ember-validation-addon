@@ -1,7 +1,9 @@
+`import Ember from 'ember'`
 `import Model from 'ember-data/model'`
 `import attr from 'ember-data/attr'`
 
-ValidationModel = Model.extend
+
+ValidationMixin = Ember.Mixin.create
   name: attr()
   description: attr()
   query: attr()
@@ -9,4 +11,4 @@ ValidationModel = Model.extend
   types: attr()
   show: attr()
 
-`export default ValidationModel`
+`export default ValidationMixin`
