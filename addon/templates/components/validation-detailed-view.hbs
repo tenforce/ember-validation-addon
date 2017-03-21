@@ -2,7 +2,7 @@
     {{validation-details description=validation.description query=validation.query types=validation.types parameters=validation.parameters showDetails=false}}
 
     {{show-result ruleid=validation.id hideTable=true disableButton=false isLoading=false timestamp=""
-    nextTimestamp="" busy=false types=validation.types parameters=validation.parameters error=false onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage}}
+    nextTimestamp="" busy=false types=validation.types parameters=validation.parameters error=false sortResultTable=sortResultTable onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage}}
 {{else}}
     <div class="msg msg--empty">Choose a rule!</div>
 {{/if}}

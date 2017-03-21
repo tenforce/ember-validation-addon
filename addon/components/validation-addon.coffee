@@ -6,6 +6,9 @@ ValidationAddonComponent = Ember.Component.extend
     store: Ember.inject.service()
     data: {}
 
+    # whether the result table should be sorted (by default true, can be overridden)
+    sortResultTable: true
+
     showComponent: Ember.computed 'data', 'platform', ->
         if $.isEmptyObject(@data) then false else true
 

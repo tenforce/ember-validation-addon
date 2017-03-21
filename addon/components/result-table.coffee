@@ -10,6 +10,9 @@ ResultTableComponent = Ember.Component.extend
     content: []
     isLoading: true
 
+    # usually overridden by whoever calls this component but if not, default to true
+    sortResultTable: true
+
     sortElement: Ember.computed 'parameters', ->
       if @get('parameters').contains('literalForm')
         return 'parameter-literal-form'
@@ -45,9 +48,10 @@ ResultTableComponent = Ember.Component.extend
             },
             randomTimestamp: {
                 'timestamp': Date.now()
-            },
-            sort: @get('sortElement')
             }
+        }
+        if @get('sortResultTable')
+            params['sort'] = @get 'sortElement'
         if @get 'selectedLanguage'
             unless @get('selectedLanguage.id') is 'all-languages'
                 params['filter']['parameter-language'] = @get 'selectedLanguage.id'

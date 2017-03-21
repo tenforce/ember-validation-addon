@@ -25,6 +25,10 @@ Add `{{validation-addon platform="translation" onConceptClick=(action 'onConcept
 
 With this parameter you can define which platform's rules you want to show. These platforms are defined [in the validation microservice's config file under the `show` property.](https://git.tenforce.com/mu-semtech/validation/blob/master/example/rules.json)
 
+### sortResultTable
+
+This parameter allows you to specify whether you want to sort the result table or not
+
 ### languageOptions and defaultLanguage
 
 If you want to add a language filtering option, use the following format:
