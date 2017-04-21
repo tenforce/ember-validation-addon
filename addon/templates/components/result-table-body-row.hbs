@@ -3,13 +3,13 @@
 <td>{{item.parameterType}}</td>
 
 {{#each parameters as |param|}}
-    {{#unless (eql param "type") }}
-        {{#unless (eql param "uuid") }}
+    {{#unless (eq param "type") }}
+        {{#unless (eq param "uuid") }}
             <td>
-                {{#if (eql param "preflabel")}}
+                {{#if (eq param "preflabel")}}
                     <a {{action 'onConceptClick' item}}>{{get item (capitalize-parameter-name param)}}</a>
                 {{/if}}
-                {{#unless (eql param "preflabel")}}
+                {{#unless (eq param "preflabel")}}
                     {{get item (capitalize-parameter-name param)}}
                 {{/unless}}
             </td>

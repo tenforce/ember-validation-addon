@@ -3,8 +3,8 @@
     <th>id</th>
     <th>type</th>
     {{#each parameters as |param|}}
-        {{#unless (eql param "uuid") }}
-            {{#unless (eql param "type") }}
+        {{#unless (eq param "uuid") }}
+            {{#unless (eq param "type") }}
                 <th>{{param}}</th>
             {{/unless}}
         {{/unless}}
