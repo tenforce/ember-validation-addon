@@ -11,11 +11,11 @@
       {{time}} (GMT)
     {{/power-select}}
     <button class="btn btn--small" {{action "fetchPrevious"}}>Fetch previous results</button>
-    {{#unless isLoading}}
-      <button class="btn btn--small" disabled= {{disableButton}} {{action "runQuery"}}>Run query</button>
-    {{/unless}}
   </div>
 {{/if}}
+{{#unless isLoading}}
+  <button class="btn btn--small" disabled= {{disableButton}} {{action "runQuery"}}>Run query</button>
+{{/unless}}
 {{#if hideTable}}
   {{#if isLoading}}
     <div class="loading">
