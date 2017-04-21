@@ -1,43 +1,40 @@
 {{#if nextTimestamp}}
-    <div class="previous-selector">
-        {{#if languageOptions}}
-            {{#if defaultLanguage}}
-                {{#power-select options=languageOptions selected=nextLanguage onchange=(action "selectLanguage") as |language|}}
-                    {{language.title}}
-                {{/power-select}}
-            {{/if}}
-        {{/if}}
-        {{#power-select options=previousList selected=nextTimestamp onchange=(action "selectTimestamp") as |time|}}
-            {{time}} (GMT)
+  <div class="previous-selector">
+    {{#if languageOptions}}
+      {{#if defaultLanguage}}
+        {{#power-select options=languageOptions selected=nextLanguage onchange=(action "selectLanguage") as |language|}}
+          {{language.title}}
         {{/power-select}}
-        <button class="btn btn--small" {{action "fetchPrevious"}}>Fetch previous results</button>
-    </div>
+      {{/if}}
+    {{/if}}
+    {{#power-select options=previousList selected=nextTimestamp onchange=(action "selectTimestamp") as |time|}}
+      {{time}} (GMT)
+    {{/power-select}}
+    <button class="btn btn--small" {{action "fetchPrevious"}}>Fetch previous results</button>
+    {{#unless isLoading}}
+      <button class="btn btn--small" disabled= {{disableButton}} {{action "runQuery"}}>Run query</button>
+    {{/unless}}
+  </div>
 {{/if}}
 {{#if hideTable}}
-    {{#if isLoading}}
-        <div class="loading">
-            <i class="fa fa-circle-o-notch fa-spin"></i>
+  {{#if isLoading}}
+    <div class="loading">
+      <i class="fa fa-circle-o-notch fa-spin"></i>
+    </div>
+  {{else}}
+    {{#if error}}
+      <div class="msg msg--empty">The validation failed.</div>
+    {{else}}
+      {{#if busy}}
+        <div class="block block--description">
+          A query is already running, try again later.
         </div>
+      {{/if}}
     {{/if}}
-    {{#unless isLoading}}
-        {{#if error}}
-            <div class="msg msg--empty">The validation failed.</div>
-        {{/if}}
-        {{#unless error}}
-            {{#if busy}}
-                <div class="block block--description">
-                    A query is already running, try again later.
-                </div>
-            {{else}}
-                <button class="btn btn--small" disabled= {{disableButton}} {{action "runQuery"}}>Run query</button>
-            {{/if}}
-        {{/unless}}
-    {{/unless}}
+  {{/if}}
+{{else}}
+  <h2>Timestamp of the results: {{timestamp}} (GMT)</h2>
+  {{#each types as |type|}}
+    {{result-table ruleid=ruleid type=type parameters=parameters timestamp=timestamp sortResultTable=sortResultTable onConceptClick=(action 'onConceptClick') selectedLanguage=language isLoading=true}}
+  {{/each}}
 {{/if}}
-
-{{#unless hideTable }}
-    <h2>Timestamp of the results: {{timestamp}} (GMT)</h2>
-    {{#each types as |type|}}
-        {{result-table ruleid=ruleid type=type parameters=parameters timestamp=timestamp sortResultTable=sortResultTable onConceptClick=(action 'onConceptClick') selectedLanguage=language isLoading=true}}
-    {{/each}}
-{{/unless}}
