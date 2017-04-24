@@ -73,7 +73,6 @@ ShowResultComponent = Ember.Component.extend
                             , 1000*30)
                     else
                         @set 'validationLoaded', true
-                        @toggleProperty('disableButton')
                         @set 'timestamp', data.meta.attributes.timestamp
                         @set 'nextTimestamp', data.meta.attributes.timestamp
                         @set 'isLoading', false
@@ -90,6 +89,7 @@ ShowResultComponent = Ember.Component.extend
 
         runQuery: ->
             @set 'language', @get('nextLanguage')
+            @set 'hideTable', true
             @startValidation()
             false
 
@@ -102,6 +102,7 @@ ShowResultComponent = Ember.Component.extend
 
         fetchPrevious: ->
             @set 'validationLoaded', true
+            @set 'isLoading', false
             @set 'timestamp', @get('nextTimestamp')
             @set 'language', @get('nextLanguage')
             if @get 'hideTable'

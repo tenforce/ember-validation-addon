@@ -14,7 +14,7 @@
   </div>
 {{/if}}
 {{#unless isLoading}}
-  <button class="btn btn--small" disabled= {{disableButton}} {{action "runQuery"}}>Run query</button>
+  <button class="btn btn--small" {{action "runQuery"}}>Run query</button>
 {{/unless}}
 {{#if hideTable}}
   {{#if isLoading}}
