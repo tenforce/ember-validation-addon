@@ -1,6 +1,5 @@
 {{#if validation}}
     {{validation-details description=validation.description query=validation.query types=validation.types parameters=validation.parameters showDetails=false}}
-timeOut: {{timeOut}}
     {{show-result ruleid=validation.id hideTable=true isLoading=false timestamp=""
     nextTimestamp="" busy=false types=validation.types parameters=validation.parameters error=false sortResultTable=sortResultTable onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage timeOut=timeOut}}
 {{else}}
