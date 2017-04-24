@@ -29,6 +29,10 @@ With this parameter you can define which platform's rules you want to show. Thes
 
 This parameter allows you to specify whether you want to sort the result table or not
 
+### timeOut
+
+This parameter sets the time out in seconds. This defines how often the addon will ask the backend, if a running query is finished or not. Default value is 60.
+
 ### languageOptions and defaultLanguage
 
 If you want to add a language filtering option, use the following format:

@@ -70,7 +70,7 @@ ShowResultComponent = Ember.Component.extend
                         setTimeout(
                             =>
                                 @checkForResults()
-                            , 1000*30)
+                            , 1000*@get('timeOut'))
                     else
                         @set 'validationLoaded', true
                         @set 'timestamp', data.meta.attributes.timestamp
