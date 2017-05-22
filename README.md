@@ -19,7 +19,7 @@ Now if we press the run button, we can have three scenarios:
 
 ## Usage
 
-Add `{{validation-addon platform="translation" onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage rulesView="list"}}` to your hbs file to use the addon.
+Add `{{validation-addon platform="translation" onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage rulesView="list" baseURL=baseURL}}` to your hbs file to use the addon.
 
 ### platform
 
@@ -36,6 +36,10 @@ This parameter allows you to specify whether you want to sort the result table o
 ### timeOut
 
 This parameter sets the time out in seconds. This defines how often the addon will ask the backend, if a running query is finished or not. Default value is 60.
+
+### baseURL
+
+This parameter defins the baseURL for the backend. The default value is an empty string. The backend url will be calculated like: `(@get('baseURL') + "/validation/").replace("//", "/")`
 
 ### languageOptions and defaultLanguage
 

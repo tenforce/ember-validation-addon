@@ -7,6 +7,8 @@ ShowResultComponent = Ember.Component.extend
     validationLoaded: false
     error: false
     store: Ember.inject.service()
+    backendUrl: Ember.computed 'baseURL', ->
+      return (@get('baseURL') + "/validation/").replace("//", "/")
 
     timestampListObserver: Ember.observer 'ruleid','hideTable', (->
         @fetchPreviousTimestamps()
@@ -41,7 +43,7 @@ ShowResultComponent = Ember.Component.extend
     startValidation: ->
         @set 'isLoading', true
         @set 'validationLoaded', false
-        validUrl = "/validation/" + @get('ruleid') + "/run"
+        validUrl = @get('backendUrl') + @get('ruleid') + "/run"
         Ember.$.ajax
             type: "POST"
             url: validUrl
@@ -61,7 +63,7 @@ ShowResultComponent = Ember.Component.extend
         if @get("validationLoaded") == false
             timestamp = @get 'timestampToCheck'
             params = timestamp.split(' ')
-            validUrl = "/validation/results?keys=" + @get('ruleid') + "&date=" + params[0] + "&time=" + params[1]
+            validUrl = @get('backendUrl') + "results?keys=" + @get('ruleid') + "&date=" + params[0] + "&time=" + params[1]
             Ember.$.ajax
                 type: "GET"
                 url: validUrl

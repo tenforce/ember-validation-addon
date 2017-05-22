@@ -7,7 +7,7 @@
 <div class="validation--right">
   <div class="output">
     {{#if validation-to-show}}
-      {{validation-detailed-view validation=validation-to-show onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage sortResultTable=sortResultTable timeOut=timeOut}}
+      {{validation-detailed-view validation=validation-to-show onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage sortResultTable=sortResultTable timeOut=timeOut baseURL=baseURL}}
     {{else}}
       <div class="empty-message">
         Choose a rule on the left! <br> <br> {{intro-text}}

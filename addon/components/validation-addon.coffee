@@ -6,6 +6,7 @@ ValidationAddonComponent = Ember.Component.extend
     store: Ember.inject.service()
     timeOut: 60 # default value
     data: {}
+    baseURL: ""
 
     # whether the result table should be sorted (by default true, can be overridden)
     sortResultTable: true
