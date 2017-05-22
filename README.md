@@ -19,11 +19,15 @@ Now if we press the run button, we can have three scenarios:
 
 ## Usage
 
-Add `{{validation-addon platform="translation" onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage}}` to your hbs file to use the addon.
+Add `{{validation-addon platform="translation" onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage rulesView="list"}}` to your hbs file to use the addon.
 
 ### platform
 
 With this parameter you can define which platform's rules you want to show. These platforms are defined [in the validation microservice's config file under the `show` property.](https://git.tenforce.com/mu-semtech/validation/blob/master/example/rules.json)
+
+### rulesView
+
+You can choose between `list` (used in Translation Platform, design is in this addon) and `dropdown` (used in ETMS platform, design is in the ETMS Platform)
 
 ### sortResultTable
 

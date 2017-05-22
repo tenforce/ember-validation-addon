@@ -345,8 +345,17 @@
         }
       }
 
+      .previous-selector {
+        .ember-power-select {
+          margin: 1% 0;
+        }
+
+        button {
+          margin-bottom: 1%;
+        }
+      }
+
       .section__title {
-        margin-top: 1%;
         font-weight: 100;
         padding: 0 0 3px;
         color: #808080;
@@ -354,7 +363,6 @@
       }
 
       .section__body {
-        margin-bottom: 1%;
         line-height: 1.2;
       }
     }
