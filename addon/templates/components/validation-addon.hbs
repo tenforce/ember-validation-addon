@@ -1,3 +1,7 @@
 {{#if showComponent}}
-    {{validations-component validationsData=data platform=platform onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage sortResultTable=sortResultTable timeOut=timeOut}}
+  {{#if (eq rulesView "dropdown")}}
+    {{validation-component-dropdown validationsData=data platform=platform onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage sortResultTable=sortResultTable timeOut=timeOut rulesView=rulesView}}
+  {{else if (eq rulesView "list")}}
+    {{validation-component-list validationsData=data platform=platform onConceptClick=(action 'onConceptClick') languageOptions=languageOptions defaultLanguage=defaultLanguage sortResultTable=sortResultTable timeOut=timeOut rulesView=rulesView}}
+  {{/if}}
 {{/if}}
